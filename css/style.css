@@ -1,0 +1,12 @@
+@import url('../webbox/css/main.css');
+.bg-head{
+    background-color: #FEEAE9;
+}
+.bg-color1{
+    background-color: #FF9D00;
+    color: white;
+}
+.bg-color2{
+    background-color: #FF136F;
+    color: white;
+}
