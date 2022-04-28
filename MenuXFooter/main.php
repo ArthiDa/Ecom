@@ -59,27 +59,15 @@ https://templatemo.com/tm-571-hexashop
 
                          <!-- ***** Menu Start ***** -->
                          <ul class="nav">
-                            <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="#men">Men's</a></li>
-                          
-                            
-                            <li class="submenu">
-                                <a href="javascript:;">Pages</a>
-                                <ul>
-                                    
-                                    <li><a href="contact.php">Login</a></li>
-                                </ul>
-                            </li>
-                            <li class="submenu">
-                                <a href="javascript:;">Features</a>
-                                <ul>
-                                    <li><a href="#">Cash On Delivery</a></li>
-                                    <li><a href="#">Easy Return</a></li>
-                                    <li><a href="#">Authentic Product</a></li>
-                                    
-                                </ul>
-                            </li>
-                            <li class="scroll-to-section"><a href="#explore">Explore</a></li>
+                            <li class="scroll-to-section"><a href="index.php" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="#top">Catagories</a></li>
+                            <li class="scroll-to-section"><a href="#men">Products</a></li>
+
+
+
+                            <li class="scroll-to-section"><a href="#">Login</a></li>
+                            <li class="scroll-to-section"><a href="#">Signup</a></li>
+
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>

@@ -16,10 +16,10 @@
                                 <h4>We Are Hexashop</h4>
                                 <span>Awesome, clean &amp; creative php5 Template</span>
                                 <div class="main-border-button">
-                                    <a href="#">Purchase Now!</a>
+                                    <li class="scroll-to-section"><a href="#men">Purchase Now!</a></li>
                                 </div>
                             </div>
-                            <img src="assets/images/left-banner-image.jpg" alt="">
+                            <img src="img/leftbanner.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                                                 <h4><?php echo $name;?></h4>
                                                 <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
                                                 <div class="main-border-button">
-                                                    <a href="<?php echo SITEURL;?>catagory.php?catagory_id=<?php echo $id?>">Discover More</a>
+                                                    <a href="<?php echo SITEURL;?>products.php?catagory_id=<?php echo $id?>">Discover More</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -69,9 +69,9 @@
     <!-- ***** Main Banner Area End ***** -->
 
 
-    <!-- ***** Men Area Starts ***** -->
+    <!-- ***** Popular Products Area start ***** -->
     <?php
-        $sql = "SELECT * FROM product";
+        $sql = "SELECT * FROM product limit 5";
         $res = mysqli_query($conn, $sql);
         $count = mysqli_num_rows($res);
     ?>
@@ -108,7 +108,7 @@
                                             <div class="hover-content">
                                                 <ul>
                                                     <li><a href="<?php echo SITEURL; ?>single-product.php?product_id=<?php echo $id;?> "><i class="fa fa-eye"></i></a></li>
-                                                    <li><a href="<?php echo SITEURL; ?>single-product.php?product_id=<?php echo $id;?> "><i class="fa fa-star"></i></a></li>
+                                                    <!-- <li><a href="<?php echo SITEURL; ?>single-product.php?product_id=<?php echo $id;?> "><i class="fa fa-star"></i></a></li> -->
                                                     <li><a href="<?php echo SITEURL; ?>single-product.php?product_id=<?php echo $id;?> "><i class="fa fa-shopping-cart"></i></a></li>
                                                 </ul>
                                             </div>
@@ -117,13 +117,13 @@
                                         <div class="down-content">
                                             <h4><?php echo $pTitle;?></h4>
                                             <span>$<?php echo $price;?></span>
-                                            <ul class="stars">
+                                            <!-- <ul class="stars">
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
                                                 <li><i class="fa fa-star"></i></li>
-                                            </ul>
+                                            </ul> -->
                                         </div>
                                     </div>
                                     
