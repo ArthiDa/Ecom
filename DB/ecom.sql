@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2022 at 10:20 PM
+-- Generation Time: Apr 28, 2022 at 07:27 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.5
 
@@ -39,10 +39,10 @@ CREATE TABLE `catagory` (
 --
 
 INSERT INTO `catagory` (`catagoryID`, `Name`, `ImgName`, `ImgBanner`) VALUES
-(1, 'Smartphones', 'smartphones.webp', 'smartphonesbanner.png'),
+(1, 'Smartphones', 'smartphones.jpg', 'smartphonesbanner.png'),
 (2, 'Laptops', 'laptops.jpg', 'laptopsbanner.jpg'),
-(3, 'Gaming Consoles', 'consoles.webp', 'consolesbanner.png'),
-(4, 'Cameras', 'cameras.webp', 'camerasbanner.jpg');
+(3, 'Gaming Consoles', 'consoles.jpg', 'consolesbanner.png'),
+(4, 'Cameras', 'cameras.jpg', 'camerasbanner.jpg');
 
 -- --------------------------------------------------------
 
@@ -58,6 +58,13 @@ CREATE TABLE `customer` (
   `Country` varchar(50) NOT NULL,
   `Password` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`customerID`, `Email`, `Name`, `Address`, `Country`, `Password`) VALUES
+(1, 'arthi@gmail.com', 'Arthi', 'Chittagong', 'Bangladesh', 0);
 
 -- --------------------------------------------------------
 
@@ -144,7 +151,7 @@ ALTER TABLE `catagory`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customerID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `customerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `orders`
