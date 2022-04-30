@@ -7,6 +7,16 @@
 ?>
     <!-- ***** Main Banner Area Start ***** -->
     <div class="main-banner" id="top">
+    <?php
+        if(isset($_SESSION['order'])){
+            ?>
+            <div class="text-center py-2 text-success">
+                <h3><?php echo $_SESSION['order']?></h3>
+            </div>
+            <?php
+            unset($_SESSION['order']);
+        }
+    ?>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-6">
@@ -34,6 +44,7 @@
                                 $name = $row2["Name"];
                                 $img = $row2["ImgName"];
                                 $banner = $row2["ImgBanner"];
+                                $qt = $row2["Quotes"];
                                 ?>
 
                             <div class="col-lg-6">
@@ -41,12 +52,12 @@
                                     <div class="thumb">
                                         <div class="inner-content">
                                             <h4><?php echo $name;?></h4>
-                                            <span>Best Clothes For Women</span>
+                                            <span>Best <?php echo $name;?> for you</span>
                                         </div>
                                         <div class="hover-content">
                                             <div class="inner">
                                                 <h4><?php echo $name;?></h4>
-                                                <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                                <p><?php echo $qt;?></p>
                                                 <div class="main-border-button">
                                                     <a href="<?php echo SITEURL;?>products.php?catagory_id=<?php echo $id?>">Discover More</a>
                                                 </div>
@@ -81,10 +92,10 @@
     <section class="section" id="men">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <div class="section-heading">
-                        <h2>Popular Headsets</h2>
-                        <span>Details to details is what makes Hexashop different from the other themes.</span>
+                        <h2 style="text-align: center;">Popular Products</h2>
+                        <p style="text-align: center;">Products makes Hexashop different from other.</p>
                     </div>
                 </div>
             </div>
@@ -109,7 +120,6 @@
                                             <div class="hover-content">
                                                 <ul>
                                                     <li><a href="<?php echo SITEURL; ?>single-product.php?product_id=<?php echo $id;?> "><i class="fa fa-eye"></i></a></li>
-                                                    <!-- <li><a href="<?php echo SITEURL; ?>single-product.php?product_id=<?php echo $id;?> "><i class="fa fa-star"></i></a></li> -->
                                                     <li><a href="<?php echo SITEURL; ?>single-product.php?product_id=<?php echo $id;?> "><i class="fa fa-shopping-cart"></i></a></li>
                                                 </ul>
                                             </div>
@@ -118,13 +128,6 @@
                                         <div class="down-content">
                                             <h4><?php echo $pTitle;?></h4>
                                             <span>$<?php echo $price;?></span>
-                                            <!-- <ul class="stars">
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                            </ul> -->
                                         </div>
                                     </div>
                                     
@@ -139,92 +142,6 @@
         </div>
     </section>
     <!-- ***** Men Area Ends ***** -->
-
-    <!-- ***** Social Area Starts ***** -->
-    <section class="section" id="social">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-heading">
-                        <h2>Social Media</h2>
-                        <span>Details to details is what makes Hexashop different from the other themes.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row images">
-                <div class="col-2">
-                    <div class="thumb">
-                        <div class="icon">
-                            <a href="http://instagram.com">
-                                <h6>Fashion</h6>
-                                <i class="fa fa-instagram"></i>
-                            </a>
-                        </div>
-                        <img src="assets/images/instagram-01.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-2">
-                    <div class="thumb">
-                        <div class="icon">
-                            <a href="http://instagram.com">
-                                <h6>New</h6>
-                                <i class="fa fa-instagram"></i>
-                            </a>
-                        </div>
-                        <img src="assets/images/instagram-02.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-2">
-                    <div class="thumb">
-                        <div class="icon">
-                            <a href="http://instagram.com">
-                                <h6>Brand</h6>
-                                <i class="fa fa-instagram"></i>
-                            </a>
-                        </div>
-                        <img src="assets/images/instagram-03.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-2">
-                    <div class="thumb">
-                        <div class="icon">
-                            <a href="http://instagram.com">
-                                <h6>Makeup</h6>
-                                <i class="fa fa-instagram"></i>
-                            </a>
-                        </div>
-                        <img src="assets/images/instagram-04.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-2">
-                    <div class="thumb">
-                        <div class="icon">
-                            <a href="http://instagram.com">
-                                <h6>Leather</h6>
-                                <i class="fa fa-instagram"></i>
-                            </a>
-                        </div>
-                        <img src="assets/images/instagram-05.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-2">
-                    <div class="thumb">
-                        <div class="icon">
-                            <a href="http://instagram.com">
-                                <h6>Bag</h6>
-                                <i class="fa fa-instagram"></i>
-                            </a>
-                        </div>
-                        <img src="assets/images/instagram-06.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ***** Social Area Ends ***** -->
-
 
 <?php include('MenuXFooter/footer.php') ?>
 

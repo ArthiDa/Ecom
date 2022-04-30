@@ -54,13 +54,6 @@
                 <div class="right-content">
                     <h4><?php echo $pTitle;?></h4>
                     <span class="price" id="pprice"> $<?php echo $price;?></span>
-                    <ul class="stars">
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                        <li><i class="fa fa-star"></i></li>
-                    </ul>
                     <span><?php echo $desc;?></span>
                     <div class="quantity-content">
                         <div class="left-content">
@@ -68,13 +61,19 @@
                         </div>
                         <div class="right-content">
                             <div class="quantity buttons_added">
-                                <input type="button" value="-" class="minus"><input onchange="fun()" type="number" id="totalQuantity" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
+                            <form action="" method="POST">
+                                <input type="button" value="-" class="minus"><input onchange="fun()" type="number" name="quantity" id="totalQuantity" step="1" min="1" max="" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
+                            </form>
                             </div>
                         </div>
                     </div>
-                    <div class="total">
-                        <h4>Total: $<span id="totalprice"></span></h4>
-                        <div class="main-border-button"><a href="#">Add To Cart</a></div>
+                    <div class="total ">
+                        <form action="" method="POST">
+                            <input type="text" name="ordquan" value=""  class="d-none"id="ordn">
+                            <input type="submit"  name="ordernow"  value="Order Now" class="btn btn-primary">
+                            <input type="submit" name="cartnow" value="Add to Cart" class="btn btn-primary">
+                            <!-- name lagbe input type lagbe -->
+                        </form>
                     </div>
                 </div>
             </div>
@@ -82,60 +81,41 @@
         </div>
     </section>
     <!-- ***** Product Area Ends ***** -->
-    
-    <?php include('MenuXFooter/footer.php') ?>
-    
-
-    <!-- jQuery -->
-    <script src="assets/js/jquery-2.1.0.min.js"></script>
-
-    <!-- Bootstrap -->
-    <script src="assets/js/popper.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-
-    <!-- Plugins -->
-    <script src="assets/js/owl-carousel.js"></script>
-    <script src="assets/js/accordions.js"></script>
-    <script src="assets/js/datepicker.js"></script>
-    <script src="assets/js/scrollreveal.min.js"></script>
-    <script src="assets/js/waypoints.min.js"></script>
-    <script src="assets/js/jquery.counterup.min.js"></script>
-    <script src="assets/js/imgfix.min.js"></script> 
-    <script src="assets/js/slick.js"></script> 
-    <script src="assets/js/lightbox.js"></script> 
-    <script src="assets/js/isotope.js"></script> 
-    <script src="assets/js/quantity.js"></script>
-    
-    <!-- Global Init -->
-    <script src="assets/js/custom.js"></script>
-
     <script>
-
-        $(function() {
-            var selectedClass = "";
-            $("p").click(function(){
-            selectedClass = $(this).attr("data-rel");
-            $("#portfolio").fadeTo(50, 0.1);
-                $("#portfolio div").not("."+selectedClass).fadeOut();
-            setTimeout(function() {
-              $("."+selectedClass).fadeIn();
-              $("#portfolio").fadeTo(50, 1);
-            }, 500);
-                
-            });
-        });
-
-    </script>
-    <script>
-    
-        const tquant = document.getElementById("totalQuantity").value;
-        const price = document.getElementById("pprice");
         function fun(){
-             tquant = document.getElementById("totalQuantity").value;
-            console.log(tquant)
-            //Product price code
+            let val = document.getElementById("totalQuantity").value;
+            document.getElementById("ordn").value=val;
         }
     </script>
+    <?php
+        if(isset($_SESSION['login'])){
+            $cid = $_SESSION['customer_id'];
+            $date = date('Y-m-d H:i:s');
+            if(isset($_POST['ordernow'])){
+                $qty = 1;
+                if($_POST['ordquan']>1){
+                    $qty = $_POST['ordquan'];
+                }
+                 $sql3 = "INSERT INTO orders SET
+                 customerID = '$cid',
+                 productID = '$product_id',
+                 Quantity = '$qty',
+                 Dates = '$date'
+                 ";
+                 $res3 = mysqli_query($conn,$sql3);
+                 if($res3){
+                     $_SESSION['order'] = "Ordered Successfully...";
+                     ?>
+                 <script>
+                         window.location.href = "http://localhost/Ecom/Index.php";
+                     </script>
+                <?php
+                }
+
+            }
+        }
+    ?>
+    <?php include('MenuXFooter/footer.php') ?>
 
   </body>
 </html>

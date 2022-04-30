@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <title>Hexashop Ecommerce CSS Template</title>
+    <title>Hexashop</title>
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
@@ -41,8 +41,8 @@ https://templatemo.com/tm-571-hexashop
             <div></div>
             <div></div>
         </div>
-    </div>  
-    <!-- ***** Preloader End ***** -->
+    </div>
+<!-- ***** Preloader End ***** -->
     
     
     <!-- ***** Header Area Start ***** -->
@@ -60,29 +60,35 @@ https://templatemo.com/tm-571-hexashop
                          <!-- ***** Menu Start ***** -->
                          <ul class="nav">
                             <li class="scroll-to-section"><a href="index.php" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="#top">Catagories</a></li>
+                            <li class="scroll-to-section"><a href="index.php">Catagories</a></li>
                             <li class="scroll-to-section"><a href="products.php">Products</a></li>
+                            <?php
+                            if(isset($_SESSION['login'])){
+                                 ?>
+                                <li class="scroll-to-section"><a href="profile.php"><?php echo $_SESSION['login'];?></a></li>
+                                <li class="scroll-to-section"><a href="<?php echo SITEURL;?>logout.php">Logout</a></li>
+                                <?php
+                            }
+                            else{
+                                 ?>
+                                <li class="scroll-to-section"><a href="login.php">Login</a></li>
+                                <li class="scroll-to-section"><a href="signup.php">Signup</a></li>
+                                <?php
+                            }
+                            ?>
+                            <li class="scroll-to-section"><a href="#social">Contact</a></li>
+                            <li class="scroll-to-section"><a href="#"><i class="fa fa-search"></i></a></li>
+                            <li class="scroll-to-section"><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
 
-
-
-                            <li class="scroll-to-section"><a href="login.php">Login</a></li>
-                            <li class="scroll-to-section"><a href="signup.php">Signup</a></li>
-
-                        </ul>        
+                        </ul>      
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
-                        <!-- ***** SEARCH ***** -->
-                        <div class="input-group">
-                            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                            <button type="button" class="btn btn-outline-primary">search</button>
-                          </div>
-                       
-                       
                         <!-- ***** Menu End ***** -->
                     </nav>
                 </div>
             </div>
         </div>
     </header>
+    
     <!-- ***** Header Area End ***** -->

@@ -1,7 +1,8 @@
+<?php include('Connection/connect.php') ?>
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Login 10</title>
+  	<title>HexaShop Signup</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -20,17 +21,26 @@
     <link rel="stylesheet" href="assets/css/owl-carousel.css">
 
     <link rel="stylesheet" href="assets/css/lightbox.css">
-<!--
 
-	</head>
-	<div id="preloader">
+
+	  <div id="preloader">
         <div class="jumper">
             <div></div>
             <div></div>
             <div></div>
         </div>
-    </div>  
-    <! ***** Preloader End ***** -->
+    </div> 
+
+    <?php
+      if(isset($_SESSION['login'])){
+        ?>
+        <script>
+          window.location.href = "http://localhost/Ecom/";
+        </script>
+        <?php
+      }
+	  ?>
+
     
     
     <!-- ***** Header Area Start ***** -->
@@ -103,38 +113,29 @@
 
 		      	<h3 class="mb-4 text-center">Create a account</h3>
 
-		      	<form action="#" class="signin-form">
+		      	<form action="" method="POST" class="signin-form">
 		      		<div class="form-group">
 
-		      			<input type="text" class="form-control" placeholder="Enter Your Name (eg:Turjo)" required>
+		      			<input type="text" name="Name" class="form-control" placeholder="Enter Your Name (eg:Turjo)" required>
 		      		</div>
 
                       <div class="form-group">
-		      			<input type="email" class="form-control" placeholder="Enter Email" required>
+		      			<input type="email" name="Email" class="form-control" placeholder="Enter Email" required>
 		      		</div>
 
               <div class="form-group">
-	              <input id="password-field" type="password" class="form-control" placeholder="Password" required>
+	              <input id="password-field" type="password" name="Password" class="form-control" placeholder="Password" required>
 	              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
 	            </div>
-
-	            <div class="form-group">
-	              <input type="number" class="form-control" placeholder="Phone Number" required>
+                <div class="form-group">
+	              <input type="text"name="Adress" class="form-control" placeholder="Adress" required>
+	            </div>
+              <div class="form-group">
+	              <input type="text" name="Country" class="form-control" placeholder="Country" required>
 	            
 	            </div>
-
-                <div class="form-group">
-	              <input type="text" class="form-control" placeholder="Adress" required>
-	           
-	            </div>
-
-              
-
-
-
-
 	            <div class="form-group">
-	            	<button type="submit" class="form-control btn btn-primary submit px-3">Create Now</button>
+	            	<input type="submit" name="create" value="Create Now"class="form-control btn btn-primary submit px-3">
 	            </div>
 
 	          </form>
@@ -144,7 +145,78 @@
 			</div>
 		</div>
 	</section>
+  <?php
+    if(isset($_POST['create'])){
+      $name = $_POST['Name'];
+      $email = $_POST['Email'];
+      $password = md5($_POST['Password']);
+      $address = $_POST['Adress'];
+      $country = $_POST['Country'];
+
+      $sql = "INSERT INTO customer SET
+      Email = '$email',
+      Name = '$name',
+      Passwords = '$password',
+      Address = '$address',
+      Country = '$country'";
+
+      $res = mysqli_query($conn, $sql);
+      if($res==true){
+        $_SESSION['create'] =  "<div class='success text-center'>Account Created Successfully...</div>";
+        ?>
+				<script>
+				  window.location.href = "http://localhost/Ecom/login.php";
+				</script>
+				<?php
+      }
+    }
+  ?>
   <?php include('MenuXFooter/footer.php') ?>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+
+  <script src="assets/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/accordions.js"></script>
+    <script src="assets/js/datepicker.js"></script>
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/imgfix.min.js"></script> 
+    <script src="assets/js/slick.js"></script> 
+    <script src="assets/js/lightbox.js"></script> 
+    <script src="assets/js/isotope.js"></script> 
+    <script src="assets/js/quantity.js"></script>
+    
+    <!-- Global Init -->
+    <script src="assets/js/custom.js"></script>
+
+    <script>
+
+        $(function() {
+            var selectedClass = "";
+            $("p").click(function(){
+            selectedClass = $(this).attr("data-rel");
+            $("#portfolio").fadeTo(50, 0.1);
+                $("#portfolio div").not("."+selectedClass).fadeOut();
+            setTimeout(function() {
+              $("."+selectedClass).fadeIn();
+              $("#portfolio").fadeTo(50, 1);
+            }, 500);
+                
+            });
+        });
+
+    </script>
+
 
 	<script src="js/jquery.min.js"></script>
   <script src="js/popper.js"></script>
