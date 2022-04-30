@@ -1,7 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/templatemo-hexashop.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br> <br> <br> <br> <br> <br> <br> <br> 
 
-<?php include('MenuXFooter/main.php') ?>
-<!-- ***** Main Banner Area Start ***** -->
-    <?php
+<header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="index.php" class="logo">
+                            <img src="assets/images/logo.png">
+                        </a>
+                         <!-- ***** Logo End ***** -->
+
+                         <!-- ***** Menu Start ***** -->
+                         <ul class="nav">
+                            <li class="scroll-to-section"><a href="index.php" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="#top">Catagories</a></li>
+                            <li class="scroll-to-section"><a href="#men">Products</a></li>
+
+
+
+                            <li class="scroll-to-section"><a href="login.php">Login</a></li>
+                            <li class="scroll-to-section"><a href="signup.php">Signup</a></li>
+
+                        </ul>        
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** SEARCH ***** -->
+                    
+                       
+                       
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<?php
         if(isset($_GET['catagory_id']))
         {
             //Get the Product id and details of the selected product
@@ -18,87 +66,68 @@
         }
     ?>
 
-    <div class="page-heading" id="top">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="inner-content"style="background-image: url('<?php echo SITEURL;?>img/<?php echo $banner?>')">
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="/w3images/lights.jpg" target="_blank">
+        <a href="../Ecom/single-product.php"><img src="img/laptops.jpg" alt="Lights" style="width:100%"></a>  
+          <div class="caption">
+              <h3>Iphone 11 Pro Max </h3>
+            <p>Price : 1000 USD</p>
+          </div>
+        </a>
+      </div>
     </div>
-    <!-- ***** Main Banner Area End ***** -->
-  
-
-    <section class="container my-5" id="psection">
-        <h1 class="text-uppercase text-center py-2 text-danger">Catagory</h1>
-            <div class="row flex justify-content-around">
-            
-                <div class="card col-3 bg-dark text-white">
-                    <img src="img/Iphone-13.jpg" class="card-img" alt="...">
-                    <div class="card-img-overlay  flex">
-                    <h1 class="my-5">Phones</h1>
-                    </div>
-                </div>
-                <div class="card col-3 bg-dark text-white">
-                    <img src="img/Iphone-13.jpg" class="card-img" alt="...">
-                    <div class="card-img-overlay  flex">
-                    <h1 class="my-5">Phones</h1>
-                    </div>
-                </div>
-                <div class="card col-3 bg-dark text-white">
-                    <img src="img/Iphone-13.jpg" class="card-img" alt="...">
-                    <div class="card-img-overlay  flex">
-                    <h1 class="my-5">Phones</h1>
-                    </div>
-                </div>
-
-            </div>
-
-    </section>
-<?php include('MenuXFooter/footer.php') ?>
-
-<!-- jQuery -->
-<script src="assets/js/jquery-2.1.0.min.js"></script>
-
-<!-- Bootstrap -->
-<script src="assets/js/popper.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-
-<!-- Plugins -->
-<script src="assets/js/owl-carousel.js"></script>
-<script src="assets/js/accordions.js"></script>
-<script src="assets/js/datepicker.js"></script>
-<script src="assets/js/scrollreveal.min.js"></script>
-<script src="assets/js/waypoints.min.js"></script>
-<script src="assets/js/jquery.counterup.min.js"></script>
-<script src="assets/js/imgfix.min.js"></script> 
-<script src="assets/js/slick.js"></script> 
-<script src="assets/js/lightbox.js"></script> 
-<script src="assets/js/isotope.js"></script> 
-<script src="assets/js/quantity.js"></script>
-
-<!-- Global Init -->
-<script src="assets/js/custom.js"></script>
-
-<script>
-
-    $(function() {
-        var selectedClass = "";
-        $("p").click(function(){
-        selectedClass = $(this).attr("data-rel");
-        $("#portfolio").fadeTo(50, 0.1);
-            $("#portfolio div").not("."+selectedClass).fadeOut();
-        setTimeout(function() {
-          $("."+selectedClass).fadeIn();
-          $("#portfolio").fadeTo(50, 1);
-        }, 500);
-            
-        });
-    });
-
-</script>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="/w3images/lights.jpg" target="_blank">
+          <a href="../Ecom/single-product.php"><img src="img/laptops.jpg" alt="Lights" style="width:100%"></a> 
+          <div class="caption">
+              <h3>Iphone 11 Pro Max </h3>
+            <p>Price : 1000 USD</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="/w3images/lights.jpg" target="_blank">
+          <img src="../Ecom/img/laptops.jpg" alt="Lights" style="width:100%">
+          <div class="caption">
+              <h3>Iphone 11 Pro Max </h3>
+            <p>Price : 1000 USD</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="/w3images/lights.jpg" target="_blank">
+          <img src="../Ecom/img/laptops.jpg" alt="Lights" style="width:100%">
+          <div class="caption">
+              <h3>Iphone 11 Pro Max </h3>
+            <p>Price : 1000 USD</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="/w3images/lights.jpg" target="_blank">
+          <img src="../Ecom/img/laptops.jpg" alt="Lights" style="width:100%">
+          <div class="caption">
+              <h3>Iphone 11 Pro Max </h3>
+            <p>Price : 1000 USD</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
+
+
