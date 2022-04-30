@@ -72,6 +72,7 @@
     <!-- ***** Popular Products Area start ***** -->
     <?php
         $sql = "SELECT * FROM product limit 5";
+        // ORDER BY productID DESC
         $res = mysqli_query($conn, $sql);
         $count = mysqli_num_rows($res);
     ?>

@@ -47,7 +47,7 @@
             <div class="row">
                 <div class="col-lg-8">
                 <div class="left-images">
-                    <img src="<?php echo SITEURL; ?>img/<?php echo $imgName;?>" alt="">
+                    <img src="<?php echo SITEURL; ?>img/<?php echo $imgName;?>" height="500px">
                 </div>
             </div>
             <div class="col-lg-4">
