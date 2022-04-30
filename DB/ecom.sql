@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2022 at 07:27 PM
+-- Generation Time: Apr 30, 2022 at 11:16 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.5
 
@@ -31,18 +31,19 @@ CREATE TABLE `catagory` (
   `catagoryID` int(11) NOT NULL,
   `Name` varchar(50) DEFAULT NULL,
   `ImgName` varchar(100) DEFAULT NULL,
-  `ImgBanner` varchar(100) NOT NULL
+  `ImgBanner` varchar(100) NOT NULL,
+  `Quotes` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `catagory`
 --
 
-INSERT INTO `catagory` (`catagoryID`, `Name`, `ImgName`, `ImgBanner`) VALUES
-(1, 'Smartphones', 'smartphones.jpg', 'smartphonesbanner.png'),
-(2, 'Laptops', 'laptops.jpg', 'laptopsbanner.jpg'),
-(3, 'Gaming Consoles', 'consoles.jpg', 'consolesbanner.png'),
-(4, 'Cameras', 'cameras.jpg', 'camerasbanner.jpg');
+INSERT INTO `catagory` (`catagoryID`, `Name`, `ImgName`, `ImgBanner`, `Quotes`) VALUES
+(1, 'Smartphones', 'smartphones.jpg', 'smartphonesbanner.png', 'The world in your pocket.'),
+(2, 'Laptops', 'laptops.jpg', 'laptopsbanner.jpg', 'Once you get to naming your laptop, you know that you\'re really having a deep relationship with it.'),
+(3, 'Gaming Consoles', 'consoles.jpg', 'consolesbanner.png', 'I\'m the hero of a thousand stories.'),
+(4, 'Cameras', 'cameras.jpg', 'camerasbanner.jpg', 'Taking an image, freezing a moment, reveals how rich reality truly is.');
 
 -- --------------------------------------------------------
 
@@ -56,15 +57,23 @@ CREATE TABLE `customer` (
   `Name` varchar(50) NOT NULL,
   `Address` varchar(100) NOT NULL,
   `Country` varchar(50) NOT NULL,
-  `Password` int(11) NOT NULL
+  `Passwords` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`customerID`, `Email`, `Name`, `Address`, `Country`, `Password`) VALUES
-(1, 'arthi@gmail.com', 'Arthi', 'Chittagong', 'Bangladesh', 0);
+INSERT INTO `customer` (`customerID`, `Email`, `Name`, `Address`, `Country`, `Passwords`) VALUES
+(1, 'arthi@gmail.com', 'Arthi', 'Chittagong', 'Bangladesh', '202cb962ac59075b964b07152d234b70'),
+(2, 'busyqe@mailinator.com', 'Iola Sims', 'Amet et dignissimos', 'Aut magna aut deleni', 'f3ed11bbdb94fd9ebdefbaf646ab94d3'),
+(3, 'jituaurab78@gmail.com', 'Jitu ', 'Chandgaon, Chittagong', 'Bangladesh', '827ccb0eea8a706c4c34a16891f84e7b'),
+(4, 'tapu@gmail.com', 'tapu', 'Chakbazar', 'Bangladesh', '827ccb0eea8a706c4c34a16891f84e7b'),
+(5, 'tapubarman@gmail.com', 'Tapu Barman', 'Chittagong', 'Bangladesh', '827ccb0eea8a706c4c34a16891f84e7b'),
+(6, 'movoruqij@mailinator.com', 'Odysseus Mathews', 'Laboriosam ipsum su', 'Recusandae Dolore i', 'f3ed11bbdb94fd9ebdefbaf646ab94d3'),
+(7, 'zoqomoju@mailinator.com', 'Tanek Lambert', 'Debitis voluptas vol', 'Libero commodi sed q', 'f3ed11bbdb94fd9ebdefbaf646ab94d3'),
+(8, 'turjo@gmail.com', 'Turjo', 'Chittagong', 'Bangladesh', '827ccb0eea8a706c4c34a16891f84e7b'),
+(9, 'ayat@gmail.com', 'ayat', 'Kumira', 'Bangladesh', '827ccb0eea8a706c4c34a16891f84e7b');
 
 -- --------------------------------------------------------
 
@@ -79,6 +88,18 @@ CREATE TABLE `orders` (
   `Quantity` int(11) DEFAULT NULL CHECK (`Quantity` > 0),
   `Dates` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`orderID`, `customerID`, `productID`, `Quantity`, `Dates`) VALUES
+(1, 1, 1, 2, '2022-04-30'),
+(2, 3, 1, 2, '2022-04-30'),
+(3, 3, 2, 2, '2022-04-30'),
+(4, 3, 4, 1, '2022-04-30'),
+(5, 3, 3, 2, '2022-04-30'),
+(6, 9, 1, 1, '2022-04-30');
 
 -- --------------------------------------------------------
 
@@ -151,13 +172,13 @@ ALTER TABLE `catagory`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `customerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `product`
