@@ -104,14 +104,23 @@
                  ";
                  $res3 = mysqli_query($conn,$sql3);
                  if($res3){
-                     $_SESSION['order'] = "Ordered Successfully...";
-                     ?>
-                 <script>
-                         window.location.href = "http://localhost/Ecom/Index.php";
-                     </script>
-                <?php
+                    $_SESSION['order'] = "Ordered Successfully...";
+                    ?>
+                    <script>
+                        window.location.href = "http://localhost/Ecom/Index.php";
+                    </script>
+                    <?php
                 }
 
+            }
+        }
+        else{
+            if(isset($_POST['ordernow'])){
+            ?>
+            <script>
+                window.location.href = "http://localhost/Ecom/login.php";
+            </script>
+            <?php
             }
         }
     ?>
