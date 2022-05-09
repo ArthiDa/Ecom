@@ -134,9 +134,16 @@
 	              <input type="text" name="Country" class="form-control" placeholder="Country" required>
 	            
 	            </div>
+              
 	            <div class="form-group">
 	            	<input type="submit" name="create" value="Create Now"class="form-control btn btn-primary submit px-3">
 	            </div>
+              <?php
+              if(isset($_SESSION['failed'])){
+                echo $_SESSION['failed'];
+                unset($_SESSION['failed']);
+              }
+              ?>
 
 	          </form>
 
@@ -149,6 +156,17 @@
     if(isset($_POST['create'])){
       $name = $_POST['Name'];
       $email = $_POST['Email'];
+      
+      $mailsql = "SELECT * FROM customer Where Email = '$email'";
+      $mailres = mysqli_query($conn,$mailsql);
+      if(mysqli_num_rows($mailres)==1){
+        $_SESSION['failed'] = "Email id already exist";
+        ?>
+        <script>
+				  window.location.href = "http://localhost/Ecom/signup.php";
+				</script>
+        <?php
+      }
       $password = md5($_POST['Password']);
       $address = $_POST['Adress'];
       $country = $_POST['Country'];
@@ -159,8 +177,8 @@
       Passwords = '$password',
       Address = '$address',
       Country = '$country'";
-
       $res = mysqli_query($conn, $sql);
+      echo $res;
       if($res==true){
         $_SESSION['create'] =  "<div class='success text-center'>Account Created Successfully...</div>";
         ?>

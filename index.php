@@ -82,7 +82,7 @@
 
     <!-- ***** Popular Products Area start ***** -->
     <?php
-        $sql = "SELECT * FROM product limit 5";
+        $sql = "SELECT * FROM product";
         // ORDER BY productID DESC
         $res = mysqli_query($conn, $sql);
         $count = mysqli_num_rows($res);
@@ -92,10 +92,10 @@
     <section class="section" id="men">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-6">
                     <div class="section-heading">
-                        <h2 style="text-align: center;">Popular Products</h2>
-                        <p style="text-align: center;">Products makes Hexashop different from other.</p>
+                        <h2>Popular Products</h2>
+                        <span>Products makes Hexashop different from other.</span>
                     </div>
                 </div>
             </div>
@@ -105,36 +105,36 @@
                 <div class="col-lg-12">
                     <div class="men-item-carousel">
                         <div class="owl-men-item owl-carousel">
-                        <?php
-                            if($count>0){
-                                while($row=mysqli_fetch_assoc($res)){
-                                    $id = $row["productID"];
-                                    $imgName = $row["ImgName"];
-                                    $pTitle = $row["Title"];
-                                    $pDes = $row["Des"];
-                                    $price = $row["Price"];
-                                    ?>
+                            <?php
+                                if($count>0){
+                                    while($row=mysqli_fetch_assoc($res)){
+                                        $id = $row["productID"];
+                                        $imgName = $row["ImgName"];
+                                        $pTitle = $row["Title"];
+                                        $pDes = $row["Des"];
+                                        $price = $row["Price"];
+                                        ?>
 
-                                    <div class="item">
-                                        <div class="thumb">
-                                            <div class="hover-content">
-                                                <ul>
-                                                    <li><a href="<?php echo SITEURL; ?>single-product.php?product_id=<?php echo $id;?> "><i class="fa fa-eye"></i></a></li>
-                                                    <li><a href="<?php echo SITEURL; ?>single-product.php?product_id=<?php echo $id;?> "><i class="fa fa-shopping-cart"></i></a></li>
-                                                </ul>
+                                        <div class="item">
+                                            <div class="thumb">
+                                                <div class="hover-content">
+                                                    <ul>
+                                                        <li><a href="<?php echo SITEURL; ?>single-product.php?product_id=<?php echo $id;?> "><i class="fa fa-eye"></i></a></li>
+                                                        <li><a href="<?php echo SITEURL; ?>single-product.php?product_id=<?php echo $id;?> "><i class="fa fa-shopping-cart"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <img src="<?php echo SITEURL; ?>img/<?php echo $imgName;?>" height="300px" alt="">
                                             </div>
-                                            <img src="<?php echo SITEURL; ?>img/<?php echo $imgName;?>" height="300px" alt="">
+                                            <div class="down-content">
+                                                <h4><?php echo $pTitle;?></h4>
+                                                <span>$<?php echo $price;?></span>
+                                            </div>
                                         </div>
-                                        <div class="down-content">
-                                            <h4><?php echo $pTitle;?></h4>
-                                            <span>$<?php echo $price;?></span>
-                                        </div>
-                                    </div>
-                                    
-                                    <?php
+                                        
+                                        <?php
+                                    }
                                 }
-                            }
-                        ?>
+                            ?>
                         </div>
                     </div>
                 </div>
