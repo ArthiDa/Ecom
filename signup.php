@@ -156,36 +156,32 @@
     if(isset($_POST['create'])){
       $name = $_POST['Name'];
       $email = $_POST['Email'];
-      
-      $mailsql = "SELECT * FROM customer Where Email = '$email'";
-      $mailres = mysqli_query($conn,$mailsql);
-      if(mysqli_num_rows($mailres)==1){
-        $_SESSION['failed'] = "Email id already exist";
+      $password = md5($_POST['Password']);
+      $address = $_POST['Adress'];
+      $country = $_POST['Country'];
+      try{
+        $sql = "INSERT INTO customer SET
+        Email = '$email',
+        Name = '$name',
+        Passwords = '$password',
+        Address = '$address',
+        Country = '$country'";
+        $res = mysqli_query($conn, $sql);
+        if($res==true){
+          $_SESSION['create'] =  "<div class='success text-center'>Account Created Successfully...</div>";
+          ?>
+          <script>
+            window.location.href = "http://localhost/Ecom/login.php";
+          </script>
+          <?php
+        }
+      } catch (mysqli_sql_exception $e){
+        $_SESSION['failed'] = "Email ID Already Exist...";
         ?>
         <script>
 				  window.location.href = "http://localhost/Ecom/signup.php";
 				</script>
         <?php
-      }
-      $password = md5($_POST['Password']);
-      $address = $_POST['Adress'];
-      $country = $_POST['Country'];
-
-      $sql = "INSERT INTO customer SET
-      Email = '$email',
-      Name = '$name',
-      Passwords = '$password',
-      Address = '$address',
-      Country = '$country'";
-      $res = mysqli_query($conn, $sql);
-      echo $res;
-      if($res==true){
-        $_SESSION['create'] =  "<div class='success text-center'>Account Created Successfully...</div>";
-        ?>
-				<script>
-				  window.location.href = "http://localhost/Ecom/login.php";
-				</script>
-				<?php
       }
     }
   ?>
