@@ -90,7 +90,7 @@
     <?php
         if(isset($_SESSION['login'])){
             $cid = $_SESSION['customer_id'];
-            $date = date('Y-m-d H:i:s');
+            $date = date('Y-m-d');
             if(isset($_POST['ordernow'])){
                 $qty = 1;
                 if($_POST['ordquan']>1){
@@ -104,7 +104,7 @@
                  ";
                  $res3 = mysqli_query($conn,$sql3);
                  if($res3){
-                    $_SESSION['order'] = "Ordered Successfully...";
+                    $_SESSION['order'] = "<div class='alert alert-success' role='alert'> Order Successfully.</div>";
                     ?>
                     <script>
                         window.location.href = "http://localhost/Ecom/Index.php";

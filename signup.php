@@ -159,13 +159,15 @@
       $password = md5($_POST['Password']);
       $address = $_POST['Adress'];
       $country = $_POST['Country'];
+      $date = date('Y-m-d');
       try{
         $sql = "INSERT INTO customer SET
         Email = '$email',
         Name = '$name',
         Passwords = '$password',
         Address = '$address',
-        Country = '$country'";
+        Country = '$country',
+        Dates = '$date'";
         $res = mysqli_query($conn, $sql);
         if($res==true){
           $_SESSION['create'] =  "<div class='success text-center'>Account Created Successfully...</div>";
