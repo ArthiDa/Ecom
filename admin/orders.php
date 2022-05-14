@@ -63,7 +63,7 @@
                                     <td><?php echo $price;?></td>
                                     <td><?php echo $name;?></td>
                                     <td><?php echo $email;?></td>
-                                    <td><a href="<?php echo SITEURL;?>/deleteOrder.php?oid=<?php echo $id;?>" class="btn btn-danger">Cancel</a></td>
+                                    <td><a href="<?php echo SITEURL;?>/deleteOrder.php?oid=<?php echo $id;?>" class="btn btn-outline-danger">Cancel</a></td>
                                 </tr>
 
                                 <?php

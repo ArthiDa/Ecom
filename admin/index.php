@@ -423,7 +423,7 @@
                           <tr>
                             <th scope="row"><a href="#"><?php echo $cn;?></a></th>
                             <td><?php echo $customer;?></td>
-                            <td><a href="#" class="text-primary"><?php echo $product;?></a></td>
+                            <td><a class="text-primary"><?php echo $product;?></a></td>
                             <td>$<?php echo $price;?></td>
                           </tr>
                           <?php

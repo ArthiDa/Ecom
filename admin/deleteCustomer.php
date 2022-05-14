@@ -1,15 +1,15 @@
 <?php include('connection/connect.php') ?>
 
 <?php
-    if(isset($_GET['oid'])){
-        $id = $_GET['oid'];
-        $dltsql = "DELETE FROM `orders` WHERE orderID = $id";
+    if(isset($_GET['cid'])){
+        $id = $_GET['cid'];
+        $dltsql = "DELETE FROM `customer` WHERE customerID = $id";
         $dtlres = mysqli_query($conn,$dltsql);
         if($dltsql){
-            $_SESSION['dltSucess'] = "<div class='alert alert-success' role='alert'> Cancel Order Successfully.</div>";
+            $_SESSION['cdltSucess'] = "<div class='alert alert-success' role='alert'> Customer Deleted Successfully.</div>";
             ?>
             <script>
-                window.location.href = "<?php echo SITEURL;?>/orders.php";
+                window.location.href = "<?php echo SITEURL;?>/customers.php";
             </script>
             <?php
         }

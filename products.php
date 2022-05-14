@@ -40,6 +40,13 @@
                     $pTitle = $row2["Title"];
                     $pDes = $row2["Des"];
                     $price = $row2["Price"];
+                    $st = $row2["Status"];
+                    if($st==1){
+                        $status = "<span class='alert alert-success text-center' role='alert'>Product is Available</span>";
+                    }
+                    else{
+                        $status = "<span class='alert alert-danger text-center' role='alert'>Product is not Available</span>";
+                    }                   
                     ?>
                     <div class="col-md-4">
                       <div class="thumbnail">
@@ -48,7 +55,8 @@
                           <div class="caption">
                             <br>
                             <h3 style="padding-left: 5px;"><?php echo $pTitle;?></h3>
-                            <p style="padding-left: 7px;">Price $<?php echo $price;?></p>
+                            <p style="padding-left: 7px;">Price $<?php echo $price;?></p><br>
+                            <?php echo $status;?>                       
                           </div>
                         </a>
                       </div> <br>
@@ -89,6 +97,13 @@
                   $pTitle = $row2["Title"];
                   $pDes = $row2["Des"];
                   $price = $row2["Price"];
+                  $st = $row2["Status"];
+                  if($st==1){
+                      $status = "<span class='alert alert-success text-center' role='alert'>Product is Available</span>";
+                  }
+                  else{
+                      $status = "<span class='alert alert-danger text-center' role='alert'>Product is not Available</span>";
+                  }
                   ?>
                   <div class="col-md-4">
                     <div class="thumbnail">
@@ -97,7 +112,8 @@
                         <div class="caption">
                           <br>
                           <h3 style="padding-left: 5px;"><?php echo $pTitle;?></h3>
-                          <p style="padding-left: 7px;">Price $<?php echo $price;?></p>
+                          <p style="padding-left: 7px;">Price $<?php echo $price;?></p><br>
+                          <?php echo $status;?>
                         </div>
                       </a>
                     </div> <br>

@@ -113,6 +113,13 @@
                                         $pTitle = $row["Title"];
                                         $pDes = $row["Des"];
                                         $price = $row["Price"];
+                                        $st = $row["Status"];
+                                        if($st==1){
+                                            $status = "<span class='alert alert-success text-center' role='alert'>Product is Available</span>";
+                                        }
+                                        else{
+                                            $status = "<span class='alert alert-danger text-center' role='alert'>Product is not Available</span>";
+                                        }
                                         ?>
 
                                         <div class="item">
@@ -128,6 +135,8 @@
                                             <div class="down-content">
                                                 <h4><?php echo $pTitle;?></h4>
                                                 <span>$<?php echo $price;?></span>
+                                                <?php echo $status;?>
+                                                
                                             </div>
                                         </div>
                                         

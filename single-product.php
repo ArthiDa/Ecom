@@ -16,6 +16,13 @@
                 $price = $row["Price"];
                 $desc = $row["Des"];
                 $catagoryid = $row["catagoryID"];
+                $st = $row["Status"];
+                if($st==1){
+                    $status = "<span class='alert alert-success text-center' role='alert'>Product is Available</span>";
+                }
+                else{
+                    $status = "<span class='alert alert-danger text-center' role='alert'>Product is not Available</span>";
+                }  
             }
         }
         $sql2 = "SELECT * FROM catagory where catagoryID = $catagoryid";
@@ -55,6 +62,7 @@
                     <h4><?php echo $pTitle;?></h4>
                     <span class="price" id="pprice"> $<?php echo $price;?></span>
                     <span><?php echo $desc;?></span>
+                    <?php echo $status;?>
                     <div class="quantity-content">
                         <div class="left-content">
                             <h6>No. of Orders</h6>
@@ -91,7 +99,7 @@
         if(isset($_SESSION['login'])){
             $cid = $_SESSION['customer_id'];
             $date = date('Y-m-d');
-            if(isset($_POST['ordernow'])){
+            if(isset($_POST['ordernow']) && $st==1){
                 $qty = 1;
                 if($_POST['ordquan']>1){
                     $qty = $_POST['ordquan'];
@@ -104,21 +112,29 @@
                  ";
                  $res3 = mysqli_query($conn,$sql3);
                  if($res3){
-                    $_SESSION['order'] = "<div class='alert alert-success' role='alert'> Order Successfully.</div>";
+                    $_SESSION['order'] = "<div class='alert alert-success' role='alert'> Ordered Successfully.</div>";
                     ?>
                     <script>
-                        window.location.href = "http://localhost/Ecom/Index.php";
+                        window.location.href = "<?php echo SITEURL;?>";
                     </script>
                     <?php
                 }
 
+            }
+            if($st==0){
+                $_SESSION['order'] = "<div class='alert alert-danger' role='alert'> Product is not Available.</div>";
+                ?>
+                <script>
+                    window.location.href = "<?php echo SITEURL;?>";
+                </script>
+                <?php         
             }
         }
         else{
             if(isset($_POST['ordernow'])){
             ?>
             <script>
-                window.location.href = "http://localhost/Ecom/login.php";
+                window.location.href = "<?php echo SITEURL;?>login.php";
             </script>
             <?php
             }
