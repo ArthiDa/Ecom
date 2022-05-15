@@ -115,10 +115,10 @@
                                         $price = $row["Price"];
                                         $st = $row["Status"];
                                         if($st==1){
-                                            $status = "<span class='alert alert-success text-center' role='alert'>Product is Available</span>";
+                                            $status = "<span class='alert alert-success text-center' role='alert'>In Stock</span>";
                                         }
                                         else{
-                                            $status = "<span class='alert alert-danger text-center' role='alert'>Product is not Available</span>";
+                                            $status = "<span class='alert alert-danger text-center' role='alert'>Out Stock</span>";
                                         }
                                         ?>
 

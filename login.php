@@ -139,7 +139,7 @@
 		if(isset($_POST['login'])){
 			$email = $_POST['Email'];
 			$password = md5($_POST['Password']);
-			$sql = "SELECT * FROM customer WHERE Email='$email' AND Passwords ='$password'";
+			$sql = "SELECT * FROM customer WHERE Email='$email' AND Passwords ='$password' AND Status = 1";
         	//3. Execute the Query
         	$res = mysqli_query($conn, $sql);
         	//4. COunt rows to check whether the user exists or not
@@ -153,7 +153,7 @@
 				   $_SESSION['customer_id'] = $cid;
 				   ?>
 				   <script>
-				   		window.location.href = "http://localhost/Ecom/";
+				   		window.location.href = "<?php echo SITEURL;?>";
 					</script>
 					<?php
 			   }
@@ -163,7 +163,7 @@
 				   $_SESSION['try'] = "<div class='error text-center'>Username or Password did not match.</div>";
 				   ?>
 				   <script>
-				   		window.location.href = "http://localhost/Ecom/login.php";
+				   		window.location.href = "<?php echo SITEURL;?>login.php";
 					</script>
 					<?php
 			   }

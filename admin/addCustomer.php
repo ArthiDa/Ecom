@@ -72,6 +72,7 @@
         Passwords = '$password',
         Address = '$address',
         Country = '$country',
+        Status = 1,
         Dates = '$date'";
         $res = mysqli_query($conn, $sql);
         if($res==true){

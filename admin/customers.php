@@ -66,6 +66,9 @@
                                     $country = $cRow['Country'];
                                     $add = $cRow['Address'];
                                     $date = $cRow['Dates'];
+                                    $status = $cRow['Status'];
+                                    if($status==1) $button = "Active";
+                                    else $button = "De-Active";
                                 ?>
                                 <tr>
                                     <th scope="row"><a href="#"><?php echo $cn++;?></a></th>
@@ -74,7 +77,7 @@
                                     <td><?php echo $add;?></td>
                                     <td>
                                         <a href="<?php echo SITEURL;?>/updateCustomer.php?cid=<?php echo $id;?>" class="btn btn-outline-info">Update</a>
-                                        <a href="<?php echo SITEURL;?>/deleteCustomer.php?cid=<?php echo $id;?>" class="btn btn-outline-danger">Delete</a>
+                                        <a href="<?php echo SITEURL;?>/deleteCustomer.php?cid=<?php echo $id;?>" class="btn btn-outline-dark"><?php echo $button;?></a>
                                     </td>
                                 </tr>
 

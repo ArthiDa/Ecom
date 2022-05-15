@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2022 at 11:58 PM
+-- Generation Time: May 15, 2022 at 01:17 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.5
 
@@ -58,26 +58,28 @@ CREATE TABLE `customer` (
   `Address` varchar(100) NOT NULL,
   `Country` varchar(50) NOT NULL,
   `Passwords` varchar(200) NOT NULL,
-  `Dates` date NOT NULL
+  `Dates` date NOT NULL,
+  `Status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`customerID`, `Email`, `Name`, `Address`, `Country`, `Passwords`, `Dates`) VALUES
-(1, 'arthi@gmail.com', 'Arthi Barua', 'Chandgaon, Chittagong', 'Bangladesh', '202cb962ac59075b964b07152d234b70', '2022-04-28'),
-(2, 'busyqe@mailinator.com', 'Iola Sims', 'Amet et dignissimos', 'Aut magna aut deleni', 'f3ed11bbdb94fd9ebdefbaf646ab94d3', '2022-04-28'),
-(3, 'jituaurab78@gmail.com', 'Jitu ', 'Chandgaon, Chittagong', 'Bangladesh', '827ccb0eea8a706c4c34a16891f84e7b', '2022-04-29'),
-(4, 'tapu@gmail.com', 'Tasmi Khair', 'Muradpur, Chittagong', 'Bangladesh', '827ccb0eea8a706c4c34a16891f84e7b', '2022-04-29'),
-(5, 'tapubarman@gmail.com', 'Tapu Barman', 'Chittagong', 'Bangladesh', '827ccb0eea8a706c4c34a16891f84e7b', '2022-04-30'),
-(8, 'turjo@gmail.com', 'Turjo', 'Chittagong', 'Bangladesh', '827ccb0eea8a706c4c34a16891f84e7b', '2022-05-01'),
-(25, 'hisyhabu@mailinator.com', 'Jameson Farley', 'Et dolore cumque cor', 'Velit adipisci dolor', 'f3ed11bbdb94fd9ebdefbaf646ab94d3', '2022-05-10'),
-(26, 'shuvo@gmail.com', 'Shuvo Baidy', 'Chittagong', 'Bangladesh', '827ccb0eea8a706c4c34a16891f84e7b', '2022-05-12'),
-(28, 'vehyk@mailinator.com', 'Hunter Nunez', 'Nesciunt consequatu', 'Voluptate sit odit e', 'f3ed11bbdb94fd9ebdefbaf646ab94d3', '2022-05-13'),
-(29, 'arrahman@gmail.com', 'AR Rahman', 'Delhi', 'India', 'f90b2b6ba6fce2888ad2094d5848192b', '2022-05-14'),
-(30, 'niloy@gmail.com', 'SD Niloy', 'Muradpur, Chittagong', 'Bangladesh', '827ccb0eea8a706c4c34a16891f84e7b', '2022-05-14'),
-(32, 'arijit@gmail.com', 'Arijit Singh', 'Mumbai', 'India', 'f0d24e1caed491e2e3990942c870ae8e', '2022-05-14');
+INSERT INTO `customer` (`customerID`, `Email`, `Name`, `Address`, `Country`, `Passwords`, `Dates`, `Status`) VALUES
+(1, 'arthi@gmail.com', 'Arthi Barua', 'Chandgaon, Chittagong', 'Bangladesh', '202cb962ac59075b964b07152d234b70', '2022-04-28', 1),
+(2, 'busyqe@mailinator.com', 'Iola Sims', 'Amet et dignissimos', 'Aut magna aut deleni', 'f3ed11bbdb94fd9ebdefbaf646ab94d3', '2022-04-28', 1),
+(3, 'jituaurab78@gmail.com', 'Jitu ', 'Chandgaon, Chittagong', 'Bangladesh', '827ccb0eea8a706c4c34a16891f84e7b', '2022-04-29', 1),
+(4, 'tapu@gmail.com', 'Tasmi Khair', 'Muradpur, Chittagong', 'Bangladesh', '827ccb0eea8a706c4c34a16891f84e7b', '2022-04-29', 1),
+(5, 'tapubarman@gmail.com', 'Tapu Barman', 'Chittagong', 'Bangladesh', '827ccb0eea8a706c4c34a16891f84e7b', '2022-04-30', 1),
+(8, 'turjo@gmail.com', 'Turjo', 'Chittagong', 'Bangladesh', '827ccb0eea8a706c4c34a16891f84e7b', '2022-05-01', 1),
+(25, 'hisyhabu@mailinator.com', 'Jameson Farley', 'Et dolore cumque cor', 'Velit adipisci dolor', 'f3ed11bbdb94fd9ebdefbaf646ab94d3', '2022-05-10', 1),
+(26, 'shuvo@gmail.com', 'Shuvo Baidy', 'Chittagong', 'Bangladesh', '827ccb0eea8a706c4c34a16891f84e7b', '2022-05-12', 1),
+(28, 'vehyk@mailinator.com', 'Hunter Nunez', 'Nesciunt consequatu', 'Voluptate sit odit e', 'f3ed11bbdb94fd9ebdefbaf646ab94d3', '2022-05-13', 1),
+(29, 'arrahman@gmail.com', 'AR Rahman', 'Delhi', 'India', 'f90b2b6ba6fce2888ad2094d5848192b', '2022-05-14', 1),
+(30, 'niloy@gmail.com', 'SD Niloy', 'Muradpur, Chittagong', 'Bangladesh', '827ccb0eea8a706c4c34a16891f84e7b', '2022-05-14', 1),
+(32, 'arijit@gmail.com', 'Arijit Singh', 'Mumbai', 'India', 'f0d24e1caed491e2e3990942c870ae8e', '2022-05-14', 1),
+(33, 'zulema@mailinator.com', 'Dale Mayo', 'Optio eum veritatis', 'Non pariatur Illum', 'f3ed11bbdb94fd9ebdefbaf646ab94d3', '2022-05-15', 1);
 
 -- --------------------------------------------------------
 
@@ -133,7 +135,11 @@ INSERT INTO `product` (`productID`, `catagoryID`, `Title`, `ImgName`, `Price`, `
 (1, 1, 'Apple iPhone 13 Pro Max', 'Iphone-13.jpg', '1000.00', 'Apple iPhone 13 Pro Max smartphone. Announced Sep 2021. Features 6.7″ display, Apple A15 Bionic chipset, 4352 mAh battery, 1024 GB storage, 6 GB RAM', 0),
 (2, 1, 'SAMSUNG Galaxy F22', 'Samsung-Galaxy.jpg', '256.00', 'Samsung Galaxy F22 Android smartphone. Announced Jul 2021. Features 6.4″ display, MT6769V chipset, 6000 mAh battery, 128 GB storage, 6 GB RAM.', 1),
 (3, 1, 'Oppo F21 Pro 5G', 'oppo-f21-pro-5g.jpg', '449.90', 'Oppo F21 Pro Android smartphone. Announced Apr 2022. Features 6.43″ display, Snapdragon 680 4G chipset, 4500 mAh battery, 128 GB storage, 8 GB RAM', 1),
-(4, 1, 'Vivo iQOO 9', 'vivo-iqoo-9.jpg', '635.00', 'vivo iQOO 9 Android smartphone. Announced Feb 2022. Features 6.56″ display, Snapdragon 888+ 5G chipset, 4350 mAh battery, 256 GB storage, 12 GB RAM', 1);
+(4, 1, 'Vivo iQOO 9', 'vivo-iqoo-9.jpg', '635.00', 'vivo iQOO 9 Android smartphone. Announced Feb 2022. Features 6.56″ display, Snapdragon 888+ 5G chipset, 4350 mAh battery, 256 GB storage, 12 GB RAM', 1),
+(5, 2, 'Apple MacBook Air 13\"', 'Product-Name-494.jpg', '1249.00', 'Apple MacBook Air 13.3-Inch Retina Display 8-core Apple M1 chip with 8GB RAM, 256GB SSD (MGN63) Space Gray', 1),
+(6, 2, ' MacBook Pro 14-Inch', 'Product-Name-6210.jpg', '2499.00', 'Apple MacBook Pro 14-Inch M1 Pro Chip, 16GB RAM, 1TB SSD (MKGT3LL/A) Silver 2021', 1),
+(7, 3, 'Sony PlayStation 5', 'Product-Name-4817.jpg', '857.07', 'Sony PlayStation 5 Digital Edition Gaming Console. AMD Zen 2-based CPU with 8 cores at 3.5GHz (variable frequency)', 1),
+(8, 4, 'Nikon D5600 DSLR', 'Product-Name-6109.jpg', '808.02', 'Nikon D5600 DSLR Camera with 18-55mm Lens. \r\nDX-Format CMOS Sensor\r\nEXPEED 4 Image Processor\r\n24.2 Megapixel\r\n5 fps continues shooting', 1);
 
 --
 -- Indexes for dumped tables
@@ -157,8 +163,8 @@ ALTER TABLE `customer`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`orderID`),
-  ADD KEY `productID` (`productID`),
-  ADD KEY `fk_orders` (`customerID`);
+  ADD KEY `fk_orders` (`customerID`),
+  ADD KEY `orders_ibfk_1` (`productID`);
 
 --
 -- Indexes for table `product`
@@ -181,7 +187,7 @@ ALTER TABLE `catagory`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `customerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -193,7 +199,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
@@ -203,14 +209,14 @@ ALTER TABLE `product`
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `fk_orders` FOREIGN KEY (`customerID`) REFERENCES `customer` (`customerID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`productID`) REFERENCES `product` (`productID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_orders` FOREIGN KEY (`customerID`) REFERENCES `customer` (`customerID`),
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`productID`) REFERENCES `product` (`productID`);
 
 --
 -- Constraints for table `product`
 --
 ALTER TABLE `product`
-  ADD CONSTRAINT `fk_product` FOREIGN KEY (`catagoryID`) REFERENCES `catagory` (`catagoryID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_product` FOREIGN KEY (`catagoryID`) REFERENCES `catagory` (`catagoryID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

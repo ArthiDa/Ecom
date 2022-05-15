@@ -18,10 +18,10 @@
                 $catagoryid = $row["catagoryID"];
                 $st = $row["Status"];
                 if($st==1){
-                    $status = "<span class='alert alert-success text-center' role='alert'>Product is Available</span>";
+                    $status = "<span class='alert alert-success text-center' role='alert'>In Stock</span>";
                 }
                 else{
-                    $status = "<span class='alert alert-danger text-center' role='alert'>Product is not Available</span>";
+                    $status = "<span class='alert alert-danger text-center' role='alert'>Out Stock</span>";
                 }  
             }
         }
@@ -122,7 +122,7 @@
 
             }
             if($st==0){
-                $_SESSION['order'] = "<div class='alert alert-danger' role='alert'> Product is not Available.</div>";
+                $_SESSION['order'] = "<div class='alert alert-danger' role='alert'> Product is Out of Stock.</div>";
                 ?>
                 <script>
                     window.location.href = "<?php echo SITEURL;?>";

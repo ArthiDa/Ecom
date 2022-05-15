@@ -25,6 +25,12 @@
                     <a href="<?php echo SITEURL;?>/addProduct.php" class="btn btn-primary">Add Product</a>
                     <br>
                     <br>
+                    <?php
+                      if(isset($_SESSION['addSuccess'])){
+                        echo $_SESSION['addSuccess'];
+                        unset($_SESSION['addSuccess']);
+                      }
+                    ?>
 
                   <table class="table table-borderless datatable">
                     <thead>
@@ -49,11 +55,11 @@
                                 $des = $prow['Des'];
                                 $st = $prow["Status"];
                                 if($st==1){
-                                    $button = "Available";
+                                    $button = "In Stock";
                                     $status = "btn btn-success";
                                 }
                                 else{
-                                    $button = "Unavailable";
+                                    $button = "Out Stock";
                                     $status = "btn btn-danger";
                                 } 
                                 ?>
