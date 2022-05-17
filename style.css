@@ -30,6 +30,9 @@ img {
   max-width: 1824px;
   margin: 0 auto;
 }
+.devoic{
+  border-radius: 50%;
+}
 
 @media only screen and (max-width: 1200px) {
   .box {

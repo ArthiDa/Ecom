@@ -1,54 +1,6 @@
 <!-- ***** Footer Start ***** -->
-<!-- <section class="section" id="social">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-heading">
-                        <h2 style="text-align: center;">Developers</h2>
-                        <p style="text-align: center;">Developers Details.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row images">
-                <div class="col-4">
-                    <div class="thumb">
-                        <div class="icon">
-                            <a href="https://www.facebook.com/surabbaruaturjo">
-                                <h6>Turjo</h6>
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                        </div>
-                        <img src="img/turjo.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="thumb">
-                        <div class="icon">
-                            <a href="https://www.facebook.com/surabbaruaturjo">
-                                <h6>Turjo</h6>
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                        </div>
-                        <img src="img/turjo.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="thumb">
-                        <div class="icon">
-                            <a href="https://www.facebook.com/surabbaruaturjo">
-                                <h6>Turjo</h6>
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                        </div>
-                        <img src="img/turjo.jpg" alt="">
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </section> -->
+
+    
     <!-- ***** Social Area Ends ***** -->
     <footer>
         <div class="container">
@@ -68,7 +20,10 @@
                 </div>
             </div>
         </div>
+
     </footer>
+
+    
 
     <script src="assets/js/jquery-2.1.0.min.js"></script>
 

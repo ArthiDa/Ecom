@@ -59,7 +59,7 @@
                             <?php echo $status;?>                       
                           </div>
                         </a>
-                      </div> <br>
+                      </div> <br> 
                     </div>
                     <?php
                   }

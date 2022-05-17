@@ -152,6 +152,50 @@
     </section>
     <!-- ***** Men Area Ends ***** -->
 
+    <section>
+        <div class="container">
+            <h1 class=" text-center pb-5 text-uppercase">Developers</h1>
+            <div class="row justify-content-center align-items-center ">
+                <div class="col-md-4">
+                <div class="fcard">
+            <div class="ftop">
+                <img src="https://avatars.githubusercontent.com/u/58880826?v=4" alt="">
+            </div>
+            <div class="fover">
+                AYAT
+            </div>
+
+        </div>
+                </div>
+
+                <div class="col-md-4">
+                <div class="fcard">
+            <div class="ftop">
+                <img src="https://avatars.githubusercontent.com/u/84791022?v=4" alt="">
+            </div>
+            <div class="fover">
+                Turjo
+            </div>
+
+        </div>
+                </div>
+
+                <div class="col-md-4">
+                <div class="fcard">
+            <div class="ftop">
+                <img src="https://avatars.githubusercontent.com/u/90525298?v=4" alt="">
+            </div>
+            <div class="fover">
+                Arthi
+            </div>
+
+        </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
 <?php include('MenuXFooter/footer.php') ?>
 
     <!-- jQuery -->
@@ -193,6 +237,7 @@
         });
 
     </script>
+    <link rel="stylesheet" href="prof.css">
 
   </body>
     </html>

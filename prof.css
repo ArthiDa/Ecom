@@ -1,0 +1,39 @@
+.fcard{
+    height: 300px;
+    width: 300px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 50%;
+
+}
+.fcard>.ftop{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    
+}
+.fcard>.ftop>img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.fcard>.fover{
+    height: 100%;
+    width: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -100%;
+    transition: 0.3s ease-in-out ;
+    background-color: rgba(23, 19, 19, 0.457);
+    border-radius: 50%;   
+}
+.fcard:hover .fover{
+    top: 0;
+    border: 50%;
+}
