@@ -418,12 +418,12 @@
                         while($salesrow=mysqli_fetch_assoc($salesres)){
                           $customer = $salesrow['Name'];
                           $product = $salesrow['Title'];
-                          $price = $salesrow['Price']; 
+                          $price = $salesrow['Price'];
                           ?>
                           <tr>
-                            <th scope="row"><a href="#"><?php echo $cn;?></a></th>
-                            <td><?php echo $customer;?></td>
-                            <td><a class="text-primary"><?php echo $product;?></a></td>
+                            <th scope="row"><?php echo $cn;?></th>
+                            <td class="text-primary fw-bolder"><?php echo $customer;?></td>
+                            <td><a class="text-primary fw-bold"><?php echo $product;?></a></td>
                             <td>$<?php echo $price;?></td>
                           </tr>
                           <?php
@@ -439,7 +439,22 @@
             </div><!-- End Recent Sales -->
             
             <!-- Top Selling -->
-            <div class="col-12">
+            <?php
+              $topSql = "SELECT * from orders";
+              $topRes = mysqli_query($conn,$topSql);
+              $topProduct = [];
+              $cnt = mysqli_num_rows($topRes);
+              while($cnt && $topRow=mysqli_fetch_assoc($topRes)){
+                $pID = $topRow['productID'];
+                $pCN = $topRow['Quantity'];
+                if(array_key_exists($pID,$topProduct)){
+                  $topProduct[$pID] = $topProduct[$pID] + $pCN;
+                }
+                else $topProduct[$pID] = $pCN;
+              }
+              arsort($topProduct);  
+            ?>
+            <div class="col-12" id="popular">
               <div class="card top-selling overflow-auto">
 
                 <div class="card-body pb-0">
@@ -456,40 +471,24 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a></th>
-                        <td><a href="#" class="text-primary fw-bold">Ut inventore ipsa voluptas nulla</a></td>
-                        <td>$64</td>
-                        <td class="fw-bold">124</td>
-                        <td>$5,828</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#"><img src="assets/img/product-2.jpg" alt=""></a></th>
-                        <td><a href="#" class="text-primary fw-bold">Exercitationem similique doloremque</a></td>
-                        <td>$46</td>
-                        <td class="fw-bold">98</td>
-                        <td>$4,508</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#"><img src="assets/img/product-3.jpg" alt=""></a></th>
-                        <td><a href="#" class="text-primary fw-bold">Doloribus nisi exercitationem</a></td>
-                        <td>$59</td>
-                        <td class="fw-bold">74</td>
-                        <td>$4,366</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#"><img src="assets/img/product-4.jpg" alt=""></a></th>
-                        <td><a href="#" class="text-primary fw-bold">Officiis quaerat sint rerum error</a></td>
-                        <td>$32</td>
-                        <td class="fw-bold">63</td>
-                        <td>$2,016</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#"><img src="assets/img/product-5.jpg" alt=""></a></th>
-                        <td><a href="#" class="text-primary fw-bold">Sit unde debitis delectus repellendus</a></td>
-                        <td>$79</td>
-                        <td class="fw-bold">41</td>
-                        <td>$3,239</td>
+                        <?php
+                          foreach($topProduct as $PID => $value) {
+                          $PSQL = "SELECT * from product where productID = $PID";
+                          $PRES = mysqli_query($conn,$PSQL);
+                          $PROW = mysqli_fetch_assoc($PRES);
+                          $Pprice = $PROW['Price'];
+                          $Ptitle = $PROW['Title'];
+                          $Pimg = $PROW['ImgName'];
+                          ?>
+                          <tr>
+                            <th scope="row"><a href="<?php echo SITEURL;?>/details.php?PID=<?php echo $PID;?>"><img src="../img/<?php echo $Pimg;?>" alt=""></a></th>
+                            <td><a href="<?php echo SITEURL;?>/details.php?PID=<?php echo $PID;?>" class="text-primary fw-bold"><?php echo $Ptitle;?></a></td>
+                            <td>$<?php echo $Pprice;?></td>
+                            <td class="fw-bold"><?php echo $value;?></td>
+                            <td>$<?php echo round($Pprice*$value);?></td>
+                          <?php
+                        }
+                        ?>
                       </tr>
                     </tbody>
                   </table>

@@ -64,7 +64,7 @@
                                 } 
                                 ?>
                                 <tr>
-                                    <th scope="row"><a href="#"><img src="<?php echo Siteurl;?>img/<?php echo $image;?>" alt="" height="50px"></a></th>
+                                    <th scope="row"><a href="<?php echo SITEURL;?>/details.php?PID=<?php echo $id;?>"><img src="<?php echo Siteurl;?>img/<?php echo $image;?>" alt="" height="50px"></a></th>
                                     <td><?php echo $product;?></td>
                                     <td><?php echo $price;?></td>
                                     <td><?php echo $des;?></td>

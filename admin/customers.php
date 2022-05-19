@@ -71,8 +71,8 @@
                                     else $button = "De-Active";
                                 ?>
                                 <tr>
-                                    <th scope="row"><a href="#"><?php echo $cn++;?></a></th>
-                                    <td><?php echo $name;?></td>
+                                    <th scope="row"><a><?php echo $cn++;?></a></th>
+                                    <td><a href="<?php echo SITEURL;?>/details.php?CID=<?php echo $id;?>" class="text-primart fw-bold"><?php echo $name;?></a></td>
                                     <td><?php echo $email;?></td>
                                     <td><?php echo $add;?></td>
                                     <td>

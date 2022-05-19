@@ -10,10 +10,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-
     <title>Hexashop</title>
 
     <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="search.css">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../style.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
@@ -77,10 +77,14 @@ https://templatemo.com/tm-571-hexashop
                             }
                             ?>
                             <li class="scroll-to-section"><a href="#social">Contact</a></li>
-                            <li class="scroll-to-section"><a href="#"><i class="fa fa-search"></i></a></li>
                             <li class="scroll-to-section"><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-
-                        </ul>      
+                            <div class="search-box">
+                                <input class="search-txt" type="text" name="" placeholder="Type to search">
+                                <a class="search-btn" href="#">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                        </div>
+                        </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
@@ -90,5 +94,4 @@ https://templatemo.com/tm-571-hexashop
             </div>
         </div>
     </header>
-    
     <!-- ***** Header Area End ***** -->
