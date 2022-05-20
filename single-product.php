@@ -76,8 +76,8 @@ if ($count2 == 1) {
                     <div class="total " >
                         <form action="" class="" method="POST">
                             <input type="text" name="ordquan" value="" class="d-none" id="ordn">
-                            <a   onclick="addItem('<?php echo $product_id ?>','<?php echo $pTitle ?>','<?php echo $imgName ?>','<?php echo $price ?>')" name="cartnow" value="Add to Cart" class="btn text-uppercase d-block btn-primary">
-                                ADD TO CHART
+                            <a onclick="addItem('<?php echo $product_id ?>','<?php echo $pTitle ?>','<?php echo $imgName ?>','<?php echo $price ?>')" name="cartnow" value="Add to Cart" class="btn text-uppercase d-block btn-primary">
+                                Add To Cart
                             </a>
                             <input type="submit" name="ordernow" value="Order Now" class="btn d-block my-2 text-uppercase  btn-primary" style="width: 100%;">
                            
@@ -90,12 +90,20 @@ if ($count2 == 1) {
     </div>
 </section>
 <!-- ***** Product Area Ends ***** -->
-<script>
-    function fun() {
-        let val = document.getElementById("totalQuantity").value;
-        document.getElementById("ordn").value = val;
+<?php
+    if (isset($_SESSION['login'])) {
+        if(isset($_POST['cartnow'])){
+            ?>
+            <script>
+                function fun() {
+                    let val = document.getElementById("totalQuantity").value;
+                    document.getElementById("ordn").value = val;
+                }
+            </script>
+            <?php
+        }
     }
-</script>
+?>
 <?php
 if (isset($_SESSION['login'])) {
     $cid = $_SESSION['customer_id'];

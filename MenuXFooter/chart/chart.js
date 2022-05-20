@@ -34,9 +34,8 @@ function addItem(id,name,img,price){
         })
     }else{
         selectedProduct.push({id:id,quan:1,img:img,price:price,name:name});
-       
+        item+=1;
     }
-    item+=1;
     console.log(selectedProduct)
     localStorage.setItem('chart',JSON.stringify(selectedProduct));
     cbadge.innerHTML=item;

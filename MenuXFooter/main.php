@@ -63,20 +63,22 @@ https://templatemo.com/tm-571-hexashop
                             <li class="scroll-to-section"><a href="index.php">Catagories</a></li>
                             <li class="scroll-to-section"><a href="products.php">Products</a></li>
                             <li class="scroll-to-section"><a href="#social">Contact</a></li>
+                            
                             <?php
                             if (isset($_SESSION['login'])) {
                             ?>
                                 <li class="scroll-to-section"><a href="profile.php"><?php echo $_SESSION['login']; ?></a></li>
                                 <li class="scroll-to-section"><a href="<?php echo SITEURL; ?>logout.php">Logout</a></li>
-                                <li class="scroll-to-section" id="fchart"><a href="#"><span id="fchartquan" class="badge badge-danger" style="position: absolute;top: -4px;right: 35px;">0</span><i class="fa fa-2x fa-shopping-cart"></i></a></li>
                             <?php
                             } else {
                             ?>
+                                
                                 <li class="scroll-to-section"><a href="login.php">Login</a></li>
                                 <li class="scroll-to-section"><a href="signup.php">Signup</a></li>
                             <?php
                             }
                             ?>
+                            <li class="scroll-to-section" id="fchart"><a href="#"><span id="fchartquan" class="badge badge-danger" style="position: absolute;top: -4px;right: 35px;">0</span><i class="fa fa-2x fa-shopping-cart"></i></a></li>
 
 
                             <div class="search-box ">
