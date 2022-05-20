@@ -101,44 +101,46 @@
                 </script>
                 <?php
             }
-            $imgName = $_FILES['image']['name'];
-            $ext = explode('.',$imgName);
-            $ext = end($ext);
-            $imgName = "Product-Name-".rand(0000,9999).".".$ext;
-            $src = $_FILES['image']['tmp_name'];
-            $dst = "../img/".$imgName;
-            $upload = move_uploaded_file($src,$dst);
-            if(!$upload){
-                $_SESSION['imageFiled'] = "<div class='alert alert-danger' role='alert'> Image Upload Failed.</div>";
-                ?>
-                <script>
-                    window.location.href = "<?php echo SITEURL;?>/addProduct.php";
-                </script>
-                <?php
-            }
-            $addSql = "INSERT INTO product SET
-            Title = '$title',
-            Price = '$price',
-            catagoryID = '$catagory',
-            Des = '$desc',
-            Status = '$st',
-            ImgName = '$imgName'";
-            $addRes = mysqli_query($conn,$addSql);
-            if($addRes){
-                $_SESSION['addSuccess'] = "<div class='alert alert-success' role='alert'> Product Added Successfully.</div>";
-                ?>
-                <script>
-                    window.location.href = "<?php echo SITEURL;?>/products.php";
-                </script>
-                <?php
-            }
             else{
-                $_SESSION['imageFiled'] = "<div class='alert alert-danger' role='alert'> Something Wrong.Try again.</div>";
-                ?>
-                <script>
-                    window.location.href = "<?php echo SITEURL;?>/addProduct.php";
-                </script>
-                <?php 
+                $imgName = $_FILES['image']['name'];
+                $ext = explode('.',$imgName);
+                $ext = end($ext);
+                $imgName = "Product-Name-".rand(0000,9999).".".$ext;
+                $src = $_FILES['image']['tmp_name'];
+                $dst = "../img/".$imgName;
+                $upload = move_uploaded_file($src,$dst);
+                if(!$upload){
+                    $_SESSION['imageFiled'] = "<div class='alert alert-danger' role='alert'> Image Upload Failed.</div>";
+                    ?>
+                    <script>
+                        window.location.href = "<?php echo SITEURL;?>/addProduct.php";
+                    </script>
+                    <?php
+                }
+                $addSql = "INSERT INTO product SET
+                Title = '$title',
+                Price = '$price',
+                catagoryID = '$catagory',
+                Des = '$desc',
+                Status = '$st',
+                ImgName = '$imgName'";
+                $addRes = mysqli_query($conn,$addSql);
+                if($addRes){
+                    $_SESSION['addSuccess'] = "<div class='alert alert-success' role='alert'> Product Added Successfully.</div>";
+                    ?>
+                    <script>
+                        window.location.href = "<?php echo SITEURL;?>/products.php";
+                    </script>
+                    <?php
+                }
+                else{
+                    $_SESSION['imageFiled'] = "<div class='alert alert-danger' role='alert'> Something Wrong.Try again.</div>";
+                    ?>
+                    <script>
+                        window.location.href = "<?php echo SITEURL;?>/addProduct.php";
+                    </script>
+                    <?php 
+                }
             }
             
         }
