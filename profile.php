@@ -10,26 +10,38 @@
                 <div class="col-lg-6 col-12">
                     <h1 class="text-uppercase text-center py-5">User Information</h1>
                     <table class="table">
+                        <?php
+                            $customerid = $_SESSION['customer_id'];
+                            $SQL = "SELECT * from customer where customerID = $customerid";
+                            $RES = mysqli_query($conn,$SQL);
+                            $ROW = mysqli_fetch_assoc($RES);
+                            $name = $ROW['Name'];
+                            $email = $ROW['Email'];
+                            $add = $ROW['Address'];
+                            $country = $ROW['Country']; 
+                        ?>
                         <thead>
 
                         </thead>
                         <tbody>
                             <tr>
                                 <th scope="row">Name</th>
-                                <td>AYAT ULLAH</td>
+                                <td><?php echo $name;?></td>
 
                             </tr>
                             <tr>
 
                                 <td scope="row">Email</td>
-                                <td>ayatullah.dev@gmail.com</td>
+                                <td><?php echo $email;?></td>
 
                             </tr>
                             <tr>
-
-                                <td scope="row">Adress</td>
-                                <td>Adress here</td>
-
+                                <td scope="row">Address</td>
+                                <td><?php echo $add;?></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Country</td>
+                                <td><?php echo $country;?></td>
                             </tr>
                         </tbody>
                     </table>
@@ -41,27 +53,48 @@
             <div class="row">
                 <div class="col-lg-12 table-responsive-sm">
                     <h1 class="text-xl  text-center text-uppercase text-primary py-5">Your Orders</h1>
+                    <?php
+                        if(isset($_SESSION['dltSucess'])){
+                            echo $_SESSION['dltSucess'];
+                            unset($_SESSION['dltSucess']);
+                        }
+                    ?>
                     <table class="table">
                         <thead>
                             <tr>
                                 <th scope="col">Preview</th>
                                 <th scope="col">Product</th>
                                 <th scope="col">Price</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Email</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <!-- Show the order here -->
-                            <tr>
-                                <th scope="row"><a href="#"><img src="http://localhost/Ecom/img/Iphone-13.jpg" alt="" height="50px"></a></th>
-                                <td>Apple iPhone 13 Pro Max</td>
-                                <td>1000.00</td>
-                                <td>Tasmi Khair</td>
-                                <td>tapu@gmail.com</td>
-                                <td><a href="" class="btn btn-outline-danger">Cancel</a></td>
-                            </tr>
+                            <?php
+                                $showSQL = "SELECT product.Title,product.ImgName,product.Price,orders.orderID
+                                FROM orders
+                                INNER JOIN product on orders.productID = product.productID
+                                INNER JOIN customer on orders.customerID = customer.customerID WHERE customer.customerID = $customerid";
+                                $showRES = mysqli_query($conn,$showSQL);
+                                $cntt = mysqli_num_rows($showRES);
+                                if($cntt){
+                                    while($showROW = mysqli_fetch_assoc($showRES)){
+                                        $img = $showROW['ImgName'];
+                                        $title = $showROW['Title'];
+                                        $price = $showROW['Price'];
+                                        $orderid = $showROW['orderID'];
+                                        ?>
+                                        <tr>
+                                            <th scope="row"><a href="#"><img src="<?php echo SITEURL;?>img/<?php echo $img;?>" alt="" height="50px"></a></th>
+                                            <td><?php echo $title;?></td>
+                                            <td><?php echo $price;?></td>
+                                            <td><a href="<?php echo SITEURL;?>cancelOrder.php?oid=<?php echo $orderid;?>" class="btn btn-outline-danger">Cancel</a></td>
+                                        </tr>
+                                        <?php
+                                    }
+                                }
+                                
+                            ?>
 
                         </tbody>
                     </table>

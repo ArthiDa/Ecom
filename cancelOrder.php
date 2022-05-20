@@ -1,4 +1,4 @@
-<?php include('connection/connect.php') ?>
+<?php include('Connection/connect.php') ?>
 
 <?php
     if(isset($_GET['oid'])){
@@ -9,7 +9,7 @@
             $_SESSION['dltSucess'] = "<div class='alert alert-success' role='alert'> Cancel Order Successfully.</div>";
             ?>
             <script>
-                window.location.href = "<?php echo SITEURL;?>/orders.php";
+                window.location.href = "<?php echo SITEURL;?>profile.php";
             </script>
             <?php
         }

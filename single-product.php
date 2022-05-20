@@ -79,7 +79,7 @@ if ($count2 == 1) {
                             <a   onclick="addItem('<?php echo $id ?>','<?php echo $pTitle ?>','<?php echo $imgName ?>','<?php echo $price ?>')" name="cartnow" value="Add to Cart" class="btn text-uppercase d-block btn-primary">
                                 ADD TO CHART
                             </a>
-                            <input   name="ordernow" value="Order Now" class="btn d-block my-2 text-uppercase  btn-primary" style="width: 100%;">
+                            <input type="submit" name="ordernow" value="Order Now" class="btn d-block my-2 text-uppercase  btn-primary" style="width: 100%;">
                            
                             <!-- name lagbe input type lagbe -->
                         </form>

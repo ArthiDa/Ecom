@@ -451,6 +451,7 @@
                     </thead>
                     <tbody>
                         <?php
+                          $counter = 0;
                           foreach($topProduct as $PID => $value) {
                           $PSQL = "SELECT * from product where productID = $PID";
                           $PRES = mysqli_query($conn,$PSQL);
@@ -466,6 +467,8 @@
                             <td class="fw-bold"><?php echo $value;?></td>
                             <td>$<?php echo round($Pprice*$value);?></td>
                           <?php
+                          $counter++;
+                          if($counter==5) break;
                         }
                         ?>
                       </tr>
