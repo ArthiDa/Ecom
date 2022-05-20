@@ -100,7 +100,9 @@ https://templatemo.com/tm-571-hexashop
     <div class=" ">
         <div class="chart" id="chart">
             <div class="container">
-                
+                <div>
+                    <span onclick="showItem()" class="btn text-xl float-right">❌</span>
+                </div>
                 <div class="row">
                     <div class="col-lg-12 table-responsive-sm">
                         <h1 class="text-xl  py-5 text-center text-uppercase text-danger py-5">Selected ITEMS</h1>
@@ -120,6 +122,9 @@ https://templatemo.com/tm-571-hexashop
 
                             </tbody>
                         </table>
+                        <div>
+                            <button class="btn btn-danger mx-auto d-block" onclick="clearChart()">CLEAR</button>
+                        </div>
                     </div>
                 </div>
 

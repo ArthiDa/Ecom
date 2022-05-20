@@ -2,8 +2,12 @@ let item = 0;
 const cbadge = document.getElementById('fchartquan');
 const fchart = document.getElementById('fchart');
 const chartbody = document.getElementById('chartitem');
-const selectedProduct =[];
+let selectedProduct = JSON.parse(localStorage.getItem('chart')) || [];
+item = selectedProduct.length;
+cbadge.innerHTML=item;
+
 function showItem(){
+    document.getElementById('chart').classList.toggle('slidechart');
     chartbody.innerHTML="";
     for(el of selectedProduct){
         chartbody.innerHTML+=`<tr>
@@ -16,7 +20,7 @@ function showItem(){
     }
 }
 fchart.addEventListener('click',()=>{
-    document.getElementById('chart').classList.toggle('slidechart');
+    
     showItem();
     
 })
@@ -34,5 +38,13 @@ function addItem(id,name,img,price){
     }
     item+=1;
     console.log(selectedProduct)
+    localStorage.setItem('chart',JSON.stringify(selectedProduct));
     cbadge.innerHTML=item;
+}
+function clearChart(){
+    selectedProduct=[];
+    localStorage.setItem('chart',JSON.stringify(selectedProduct));
+    cbadge.innerHTML=0;
+    item=0;
+    showItem();
 }
