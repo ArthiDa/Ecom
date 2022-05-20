@@ -1,4 +1,13 @@
 <?php include('MenuXFooter/main.php') ?>
+<?php
+    if(!isset($_SESSION['login'])) {
+        ?>
+        <script>
+            window.location.href = "<?php echo SITEURL;?>login.php";
+        </script>
+        <?php
+    }
+?>
 <main>
     <div class="main-banner">
         <!-- User Details Container -->
@@ -15,8 +24,11 @@
                         $add = $ROW['Address'];
                         $country = $ROW['Country'];
                         $pimg = $ROW['pimg'];
+                        if($pimg==''){
+                            $pimg = "https://cdn.pixabay.com/photo/2013/07/13/10/07/man-156584_960_720.png";
+                        }
                         ?>
-                    <img src="<?php echo $pimg; ?>" class="mx-auto d-block mx-lg-0 rounded-circle img-thumbnail" alt="">
+                    <img src="<?php echo $pimg;?>" width="400px" height="400px" class="mx-auto d-block mx-lg-0 rounded-circle img-thumbnail" alt="">
                     <div>
                         <h1 id="load"></h1>
                         <input type="file" id="input_img" onchange="fileChange()" accept="image/*" />
@@ -136,7 +148,7 @@
 
             const url = `<?php echo SITEURL; ?>/api/img_upload.php?img="${jx.data.url}"&id=<?php echo $customerid?>`;
             fetch(url).then(res=>res.json()).then(data=>console.log(data));
-            
+            window.location.href = "<?php echo SITEURL;?>profile.php";
 
         });
     }
