@@ -125,7 +125,7 @@
             ImgName = '$imgName'";
             $addRes = mysqli_query($conn,$addSql);
             if($addRes){
-                $_SESSION['addSuccess'] = "<div class='alert alert-success' role='alert'> Customer Added Successfully.</div>";
+                $_SESSION['addSuccess'] = "<div class='alert alert-success' role='alert'> Product Added Successfully.</div>";
                 ?>
                 <script>
                     window.location.href = "<?php echo SITEURL;?>/products.php";
