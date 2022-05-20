@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 15, 2022 at 01:17 PM
+-- Generation Time: May 20, 2022 at 12:18 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.5
 
@@ -20,6 +20,33 @@ SET time_zone = "+00:00";
 --
 -- Database: `ecom`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `ID` int(11) NOT NULL,
+  `Name` text NOT NULL,
+  `About` text NOT NULL,
+  `Username` text NOT NULL,
+  `Password` text NOT NULL,
+  `Address` text NOT NULL,
+  `Country` text NOT NULL,
+  `Status` text NOT NULL,
+  `Facebook` text NOT NULL,
+  `Github` text NOT NULL,
+  `Img` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`ID`, `Name`, `About`, `Username`, `Password`, `Address`, `Country`, `Status`, `Facebook`, `Github`, `Img`) VALUES
+(1, 'Pranab Barua', 'Student of CSE,IIUC', 'Arthi', 'Arthi150', 'Bahir Signal,Chandgaon', 'Bangladesh', 'Backend Web Developer', 'https://www.facebook.com/arthi.barua.54', 'https://github.com/ArthiDa', 'https://avatars.githubusercontent.com/u/90525298?v=4');
 
 -- --------------------------------------------------------
 
@@ -79,7 +106,9 @@ INSERT INTO `customer` (`customerID`, `Email`, `Name`, `Address`, `Country`, `Pa
 (29, 'arrahman@gmail.com', 'AR Rahman', 'Delhi', 'India', 'f90b2b6ba6fce2888ad2094d5848192b', '2022-05-14', 1),
 (30, 'niloy@gmail.com', 'SD Niloy', 'Muradpur, Chittagong', 'Bangladesh', '827ccb0eea8a706c4c34a16891f84e7b', '2022-05-14', 1),
 (32, 'arijit@gmail.com', 'Arijit Singh', 'Mumbai', 'India', 'f0d24e1caed491e2e3990942c870ae8e', '2022-05-14', 1),
-(33, 'zulema@mailinator.com', 'Dale Mayo', 'Optio eum veritatis', 'Non pariatur Illum', 'f3ed11bbdb94fd9ebdefbaf646ab94d3', '2022-05-15', 1);
+(33, 'zulema@mailinator.com', 'Dale Mayo', 'Optio eum veritatis', 'Non pariatur Illum', 'f3ed11bbdb94fd9ebdefbaf646ab94d3', '2022-05-15', 1),
+(34, 'ah@gmail.com', 'Ahsan', 'qwertt', 'Bangladesh', 'a384b6463fc216a5f8ecb6670f86456a', '2022-05-16', 1),
+(35, 'ahsan@gmail.com', 'Ahsan', 'Chittagong', 'Bangladesh', 'd8578edf8458ce06fbc5bb76a58c5ca4', '2022-05-16', 1);
 
 -- --------------------------------------------------------
 
@@ -109,7 +138,8 @@ INSERT INTO `orders` (`orderID`, `customerID`, `productID`, `Quantity`, `Dates`)
 (9, 1, 4, 1, '2022-05-12'),
 (11, 26, 4, 1, '2022-05-13'),
 (13, 4, 1, 2, '2022-05-13'),
-(15, 30, 3, 1, '2022-05-14');
+(15, 30, 3, 1, '2022-05-14'),
+(16, 35, 4, 1, '2022-05-16');
 
 -- --------------------------------------------------------
 
@@ -139,11 +169,21 @@ INSERT INTO `product` (`productID`, `catagoryID`, `Title`, `ImgName`, `Price`, `
 (5, 2, 'Apple MacBook Air 13\"', 'Product-Name-494.jpg', '1249.00', 'Apple MacBook Air 13.3-Inch Retina Display 8-core Apple M1 chip with 8GB RAM, 256GB SSD (MGN63) Space Gray', 1),
 (6, 2, ' MacBook Pro 14-Inch', 'Product-Name-6210.jpg', '2499.00', 'Apple MacBook Pro 14-Inch M1 Pro Chip, 16GB RAM, 1TB SSD (MKGT3LL/A) Silver 2021', 1),
 (7, 3, 'Sony PlayStation 5', 'Product-Name-4817.jpg', '857.07', 'Sony PlayStation 5 Digital Edition Gaming Console. AMD Zen 2-based CPU with 8 cores at 3.5GHz (variable frequency)', 1),
-(8, 4, 'Nikon D5600 DSLR', 'Product-Name-6109.jpg', '808.02', 'Nikon D5600 DSLR Camera with 18-55mm Lens. \r\nDX-Format CMOS Sensor\r\nEXPEED 4 Image Processor\r\n24.2 Megapixel\r\n5 fps continues shooting', 1);
+(8, 4, 'Nikon D5600 DSLR', 'Product-Name-6109.jpg', '808.02', 'Nikon D5600 DSLR Camera with 18-55mm Lens. \r\nDX-Format CMOS Sensor\r\nEXPEED 4 Image Processor\r\n24.2 Megapixel\r\n5 fps continues shooting', 1),
+(9, 3, 'Xbox Night Ops', 'Product-Name-622.jpg', '76.99', 'Xbox Night Ops Camo Special Edition Wireless Controller. Compatible With: Xbox Series X, Xbox Series S, Xbox One, Windows 10, Android, iOS\r\nBluetooth\r\nEasy Plug In\r\nStrong Grips', 1),
+(10, 2, 'ASUS Vivobook Pro', 'Product-Name-9262.jpg', '1442.88', 'ASUS Vivobook Pro 14x OLED M7400QC Ryzen 7 5800H RTX 3050 4GB Graphics 14\" 2.8K Gaming Laptop.\r\nProcessor: AMD Ryzen 7 5800H (8-core, 16-thread, 20MB cache, up to 4.4 GHz)\r\nMemory: 16GB DDR4 RAM\r\nStor', 1),
+(11, 2, 'Lenovo IdeaPad D330', 'Product-Name-9154.jpg', '416.16', 'Lenovo IdeaPad D330 10IGL Intel CDC N4020 10.1\" HD Touch Laptop. Processor: Intel Celeron N4020 (4M Cache,1.10 GHz up to 2.80 GHz)\r\nRAM: 4GB DDR4\r\nStorage: 128GB eMMC', 0);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `Username` (`Username`) USING HASH;
 
 --
 -- Indexes for table `catagory`
@@ -178,6 +218,12 @@ ALTER TABLE `product`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `catagory`
 --
 ALTER TABLE `catagory`
@@ -187,19 +233,19 @@ ALTER TABLE `catagory`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `customerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables
