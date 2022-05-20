@@ -29,7 +29,7 @@ if ($count2 == 1) {
     $row2 = mysqli_fetch_assoc($res2);
     $name = $row2["Name"];
     $imgname = $row2["ImgBanner"];
-    $id = $row2["productID"];
+    
 }
 ?>
 
@@ -76,7 +76,7 @@ if ($count2 == 1) {
                     <div class="total " >
                         <form action="" class="" method="POST">
                             <input type="text" name="ordquan" value="" class="d-none" id="ordn">
-                            <a   onclick="addItem('<?php echo $id ?>','<?php echo $pTitle ?>','<?php echo $imgName ?>','<?php echo $price ?>')" name="cartnow" value="Add to Cart" class="btn text-uppercase d-block btn-primary">
+                            <a   onclick="addItem('<?php echo $product_id ?>','<?php echo $pTitle ?>','<?php echo $imgName ?>','<?php echo $price ?>')" name="cartnow" value="Add to Cart" class="btn text-uppercase d-block btn-primary">
                                 ADD TO CHART
                             </a>
                             <input type="submit" name="ordernow" value="Order Now" class="btn d-block my-2 text-uppercase  btn-primary" style="width: 100%;">
