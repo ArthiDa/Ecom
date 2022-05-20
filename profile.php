@@ -39,7 +39,7 @@
         <!-- User orderd Products -->
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12 table-responsive-sm">
                     <h1 class="text-xl  text-center text-uppercase text-primary py-5">Your Orders</h1>
                     <table class="table">
                         <thead>
