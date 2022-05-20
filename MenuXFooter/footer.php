@@ -43,6 +43,7 @@
     <script src="assets/js/lightbox.js"></script> 
     <script src="assets/js/isotope.js"></script> 
     <script src="assets/js/quantity.js"></script>
+    <script src="../ecom/MenuXFooter/chart/chart.js"></script>
     
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>

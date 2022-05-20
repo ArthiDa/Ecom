@@ -127,7 +127,7 @@
                                                 <div class="hover-content">
                                                     <ul>
                                                         <li><a href="<?php echo SITEURL; ?>single-product.php?product_id=<?php echo $id;?> "><i class="fa fa-eye"></i></a></li>
-                                                        <li><a href="<?php echo SITEURL; ?>single-product.php?product_id=<?php echo $id;?> "><i class="fa fa-shopping-cart"></i></a></li>
+                                                        <li onclick="addItem()"><a><i class="fa fa-shopping-cart" ></i></a></li>
                                                     </ul>
                                                 </div>
                                                 <img src="<?php echo SITEURL; ?>img/<?php echo $imgName;?>" height="300px" alt="">

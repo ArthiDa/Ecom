@@ -62,11 +62,13 @@ https://templatemo.com/tm-571-hexashop
                             <li class="scroll-to-section"><a href="index.php" class="active">Home</a></li>
                             <li class="scroll-to-section"><a href="index.php">Catagories</a></li>
                             <li class="scroll-to-section"><a href="products.php">Products</a></li>
+                            <li class="scroll-to-section"><a href="#social">Contact</a></li>
                             <?php
                             if(isset($_SESSION['login'])){
                                  ?>
                                 <li class="scroll-to-section"><a href="profile.php"><?php echo $_SESSION['login'];?></a></li>
                                 <li class="scroll-to-section"><a href="<?php echo SITEURL;?>logout.php">Logout</a></li>
+                                <li class="scroll-to-section" ><a href="#" ><span id="fchart" class="badge badge-danger" style="position: absolute;top: -4px;right: 35px;">0</span><i class="fa fa-2x fa-shopping-cart"></i></a></li>
                                 <?php
                             }
                             else{
@@ -76,14 +78,15 @@ https://templatemo.com/tm-571-hexashop
                                 <?php
                             }
                             ?>
-                            <li class="scroll-to-section"><a href="#social">Contact</a></li>
-                            <li class="scroll-to-section"><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            <div class="search-box">
-                                <input class="search-txt" type="text" name="" placeholder="Type to search">
-                                <a class="search-btn" href="#">
-                                    <i class="fa fa-search"></i>
+                            
+                           
+                            <div class="search-box ">
+                                <input class="search-txt  d-none" type="text" name="" placeholder="Type to search">
+                                <a class="" href="#">
+                                    <i class="fa fa-2x fa-search" id="sbtn"></i>
                                 </a>
                         </div>
+                        
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>

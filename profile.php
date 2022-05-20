@@ -53,7 +53,7 @@
                             </tr>
                         </thead>
                         <tbody>
-
+                            <!-- Show the order here -->
                             <tr>
                                 <th scope="row"><a href="#"><img src="http://localhost/Ecom/img/Iphone-13.jpg" alt="" height="50px"></a></th>
                                 <td>Apple iPhone 13 Pro Max</td>
