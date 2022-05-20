@@ -47,7 +47,7 @@ https://templatemo.com/tm-571-hexashop
 
     <!-- ***** Header Area Start ***** -->
     <header class="header-area header-sticky ">
-        <div class="container overflow-hidden">
+        <div class="container ">
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
@@ -114,15 +114,9 @@ https://templatemo.com/tm-571-hexashop
                                    
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="chartitem">
                                 <!-- Show the order here -->
-                                <tr>
-                                    <th scope="row"><a href="#"><img src="http://localhost/Ecom/img/Iphone-13.jpg" alt="" height="50px"></a></th>
-                                    <td>Apple iPhone 13 Pro Max</td>
-                                    <td>1000.00</td>
-                                    <td>12</td>
-                                    
-                                </tr>
+                                
 
                             </tbody>
                         </table>
@@ -142,7 +136,7 @@ https://templatemo.com/tm-571-hexashop
             width: 80%;
             height: 100%;
             
-            position: absolute;
+            position: fixed;
             top: 0px;
             z-index: 100;
             box-shadow: 0 0 10px black;
