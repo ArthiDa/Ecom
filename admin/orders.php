@@ -24,12 +24,7 @@
 
                 <div class="card-body">
                   <h5 class="card-title">Order List</h5>
-                  <?php
-                    if(isset($_SESSION['dltSucess'])){
-                        echo $_SESSION['dltSucess'];
-                        unset($_SESSION['dltSucess']);
-                    }
-                  ?>
+                 
 
                   <table class="table table-borderless datatable">
                     <thead>
