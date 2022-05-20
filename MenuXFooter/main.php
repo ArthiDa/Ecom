@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,17 +23,17 @@
     <link rel="stylesheet" href="assets/css/owl-carousel.css">
 
     <link rel="stylesheet" href="assets/css/lightbox.css">
-<!--
+    <!--
 
 TemplateMo 571 Hexashop
 
 https://templatemo.com/tm-571-hexashop
 
 -->
-    </head>
-    
-    <body>
-    
+</head>
+
+<body>
+
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
         <div class="jumper">
@@ -42,12 +42,12 @@ https://templatemo.com/tm-571-hexashop
             <div></div>
         </div>
     </div>
-<!-- ***** Preloader End ***** -->
-    
-    
+    <!-- ***** Preloader End ***** -->
+
+
     <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky">
-        <div class="container">
+    <header class="header-area header-sticky ">
+        <div class="container overflow-hidden">
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
@@ -55,38 +55,37 @@ https://templatemo.com/tm-571-hexashop
                         <a href="index.php" class="logo">
                             <img src="assets/images/logo.png">
                         </a>
-                         <!-- ***** Logo End ***** -->
+                        <!-- ***** Logo End ***** -->
 
-                         <!-- ***** Menu Start ***** -->
-                         <ul class="nav">
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
                             <li class="scroll-to-section"><a href="index.php" class="active">Home</a></li>
                             <li class="scroll-to-section"><a href="index.php">Catagories</a></li>
                             <li class="scroll-to-section"><a href="products.php">Products</a></li>
                             <li class="scroll-to-section"><a href="#social">Contact</a></li>
                             <?php
-                            if(isset($_SESSION['login'])){
-                                 ?>
-                                <li class="scroll-to-section"><a href="profile.php"><?php echo $_SESSION['login'];?></a></li>
-                                <li class="scroll-to-section"><a href="<?php echo SITEURL;?>logout.php">Logout</a></li>
-                                <li class="scroll-to-section" ><a href="#" ><span id="fchart" class="badge badge-danger" style="position: absolute;top: -4px;right: 35px;">0</span><i class="fa fa-2x fa-shopping-cart"></i></a></li>
-                                <?php
-                            }
-                            else{
-                                 ?>
+                            if (isset($_SESSION['login'])) {
+                            ?>
+                                <li class="scroll-to-section"><a href="profile.php"><?php echo $_SESSION['login']; ?></a></li>
+                                <li class="scroll-to-section"><a href="<?php echo SITEURL; ?>logout.php">Logout</a></li>
+                                <li class="scroll-to-section" id="fchart"><a href="#"><span id="fchartquan" class="badge badge-danger" style="position: absolute;top: -4px;right: 35px;">0</span><i class="fa fa-2x fa-shopping-cart"></i></a></li>
+                            <?php
+                            } else {
+                            ?>
                                 <li class="scroll-to-section"><a href="login.php">Login</a></li>
                                 <li class="scroll-to-section"><a href="signup.php">Signup</a></li>
-                                <?php
+                            <?php
                             }
                             ?>
-                            
-                           
+
+
                             <div class="search-box ">
                                 <input class="search-txt  d-none" type="text" name="" placeholder="Type to search">
                                 <a class="" href="#">
                                     <i class="fa fa-2x fa-search" id="sbtn"></i>
                                 </a>
-                        </div>
-                        
+                            </div>
+
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -96,5 +95,64 @@ https://templatemo.com/tm-571-hexashop
                 </div>
             </div>
         </div>
+
     </header>
+    <div class=" ">
+        <div class="chart" id="chart">
+            <div class="container">
+                
+                <div class="row">
+                    <div class="col-lg-12 table-responsive-sm">
+                        <h1 class="text-xl  py-5 text-center text-uppercase text-danger py-5">Selected ITEMS</h1>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Preview</th>
+                                    <th scope="col">Product</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Quantity</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Show the order here -->
+                                <tr>
+                                    <th scope="row"><a href="#"><img src="http://localhost/Ecom/img/Iphone-13.jpg" alt="" height="50px"></a></th>
+                                    <td>Apple iPhone 13 Pro Max</td>
+                                    <td>1000.00</td>
+                                    <td>12</td>
+                                    
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <style>
+        .chart-container {
+            overflow: hidden;
+        }
+
+        .chart {
+            width: 80%;
+            height: 100%;
+            
+            position: absolute;
+            top: 0px;
+            z-index: 100;
+            box-shadow: 0 0 10px black;
+            left: -110%;
+            background: white;
+            transition: all 0.5s;
+        }
+
+        .slidechart {
+            left: 0;
+        }
+    </style>
     <!-- ***** Header Area End ***** -->
