@@ -5,7 +5,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-12">
-                    <img src="https://picsum.photos/id/237/300/300" class="mx-auto d-block mx-lg-0 rounded-circle img-thumbnail" alt="">
+                <?php
+                        $customerid = $_SESSION['customer_id'];
+                        $SQL = "SELECT * from customer where customerID = $customerid";
+                        $RES = mysqli_query($conn, $SQL);
+                        $ROW = mysqli_fetch_assoc($RES);
+                        $name = $ROW['Name'];
+                        $email = $ROW['Email'];
+                        $add = $ROW['Address'];
+                        $country = $ROW['Country'];
+                        $pimg = $ROW['pimg'];
+                        ?>
+                    <img src="<?php echo $pimg; ?>" class="mx-auto d-block mx-lg-0 rounded-circle img-thumbnail" alt="">
                     <div>
                         <h1 id="load"></h1>
                         <input type="file" id="input_img" onchange="fileChange()" accept="image/*" />
@@ -15,16 +26,7 @@
                 <div class="col-lg-6 col-12">
                     <h1 class="text-uppercase text-center py-5">User Information</h1>
                     <table class="table">
-                        <?php
-                        $customerid = $_SESSION['customer_id'];
-                        $SQL = "SELECT * from customer where customerID = $customerid";
-                        $RES = mysqli_query($conn, $SQL);
-                        $ROW = mysqli_fetch_assoc($RES);
-                        $name = $ROW['Name'];
-                        $email = $ROW['Email'];
-                        $add = $ROW['Address'];
-                        $country = $ROW['Country'];
-                        ?>
+                        
                         <thead>
 
                         </thead>
@@ -118,7 +120,7 @@
         form.append("image", file.files[0]);
         load.innerHTML = "Loading..."
         var settings = {
-            url: "https://api.imgbb.com/1/upload?key=a4f874e8592ba2cda3a9a1aec3cd03ee",
+            url: "https://api.imgbb.com/1/upload?key=9339ccce6ba8bc89a7d59c6342549043",
             method: "POST",
             timeout: 0,
             processData: false,
@@ -131,7 +133,8 @@
             console.log(response);
             var jx = JSON.parse(response);
             load.innerHTML = "Done"
-            
+            const url = `<?php echo SITEURL; ?>/api/img_upload.php?img="${jx.data.url}"&id=<?php echo $customerid?>`;
+            fetch(url).then(res=>res.json()).then(data=>console.log(data));
             
         });
     }
