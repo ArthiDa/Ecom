@@ -133,9 +133,11 @@
             console.log(response);
             var jx = JSON.parse(response);
             load.innerHTML = "Done"
+
             const url = `<?php echo SITEURL; ?>/api/img_upload.php?img="${jx.data.url}"&id=<?php echo $customerid?>`;
             fetch(url).then(res=>res.json()).then(data=>console.log(data));
             
+
         });
     }
 </script>

@@ -1,5 +1,6 @@
 <?php include('../Connection/connect.php')?>
 <?php
+    echo $_GET['img'];
 
     header("Content-Type:application/json;charset=UTF-8");
     $img = json_decode($_GET["img"],false);
