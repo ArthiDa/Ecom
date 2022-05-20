@@ -131,8 +131,9 @@
             console.log(response);
             var jx = JSON.parse(response);
             load.innerHTML = "Done"
-            
-            
+            </script>
+            <a href="<?php echo SITEURL;?>api/img_upload?img=<script>document.writeln(jx.data.url);</script>"></a>
+            <script>
         });
     }
 </script>
