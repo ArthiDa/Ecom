@@ -31,6 +31,27 @@ https://templatemo.com/tm-571-hexashop
 
 -->
     </head>
+    <style>
+        input[type=text] {
+  width: 100px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 12px 10px 12px 20px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  z-index: 9999;
+}
+
+input[type=text]:focus {
+  width: 20%;
+}
+    </style>
     
     <body>
     
@@ -76,14 +97,9 @@ https://templatemo.com/tm-571-hexashop
                                 <?php
                             }
                             ?>
-                            <li class="scroll-to-section"><a href="#social">Contact</a></li>
+                            <li class="scroll-to-section"><a href="../Profile/index.php">Contact</a></li>
                             <li class="scroll-to-section"><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            <div class="search-box">
-                                <input class="search-txt" type="text" name="" placeholder="Type to search">
-                                <a class="search-btn" href="#">
-                                    <i class="fa fa-search"></i>
-                                </a>
-                        </div>
+                            <input type="text" name="search" placeholder="Search..">
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
