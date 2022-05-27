@@ -231,7 +231,6 @@
     
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>
-
     <script>
 
         $(function() {
@@ -250,6 +249,7 @@
 
     </script>
     <link rel="stylesheet" href="prof.css">
+    <script src="./MenuXFooter/chart/chart.js"></script>
     <?php include('MenuXFooter/footer.php') ?>
 
   </body>

@@ -187,6 +187,7 @@ if (isset($_SESSION['login'])) {
     });
 
 </script>
+<script src="./MenuXFooter/chart/chart.js"></script>
 <?php include('MenuXFooter/footer.php') ?>
 
 

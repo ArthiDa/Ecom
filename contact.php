@@ -130,5 +130,5 @@
 
 <!-- Global Init -->
 <script src="assets/js/custom.js"></script>
-
+<script src="./MenuXFooter/chart/chart.js"></script>
 <?php include('MenuXFooter/footer.php') ?>

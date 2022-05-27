@@ -58,7 +58,6 @@
                          <!-- ***** Menu Start ***** -->
                          <ul class="nav">
                             <li class="scroll-to-section"><a href="index.php" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="#top">Catagories</a></li>
                             <li class="scroll-to-section"><a href="products.php">Products</a></li>
 
 
@@ -66,7 +65,7 @@
                             <li class="scroll-to-section"><a href="login.php">Login</a></li>
                             <li class="scroll-to-section"><a href="#">Signup</a></li>
 
-                        </ul>        
+                        </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
@@ -252,6 +251,7 @@ function myFunction() {
   }
 }
 </script>
+<script src="./MenuXFooter/chart/chart.js"></script>
 <?php include('MenuXFooter/footer.php') ?>
 	</body>
 </html>

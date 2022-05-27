@@ -193,4 +193,5 @@
     });
 
 </script>
+<script src="./MenuXFooter/chart/chart.js"></script>
 <?php include('MenuXFooter/footer.php') ?>
