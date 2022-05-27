@@ -26,7 +26,7 @@
 		if(isset($_SESSION['login'])){
 			?>
 			<script>
-				window.location.href = "http://localhost/Ecom/";
+				window.location.href = "<?php echo SITEURL;?>";
 			</script>
 			<?php
 		}
@@ -48,11 +48,7 @@
                          <!-- ***** Menu Start ***** -->
                          <ul class="nav">
                             <li class="scroll-to-section"><a href="index.php" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="#top">Catagories</a></li>
                             <li class="scroll-to-section"><a href="products.php">Products</a></li>
-
-
-
                             <li class="scroll-to-section"><a href="login.php">Login</a></li>
                             <li class="scroll-to-section"><a href="signup.php">Signup</a></li>
 

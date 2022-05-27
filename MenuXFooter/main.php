@@ -13,9 +13,8 @@
     <title>Hexashop</title>
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="search.css">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../style.css">
+
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
 
     <link rel="stylesheet" href="assets/css/templatemo-hexashop.css">
@@ -23,6 +22,10 @@
     <link rel="stylesheet" href="assets/css/owl-carousel.css">
 
     <link rel="stylesheet" href="assets/css/lightbox.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css/style.css">
+    
     <!--
 
 TemplateMo 571 Hexashop
@@ -31,6 +34,29 @@ https://templatemo.com/tm-571-hexashop
 
 -->
 </head>
+<style>
+  input[type=text] {
+  width: 100px;
+  height: 50px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 10px 12px 20px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  z-index: 9999;
+  transform-origin: top right;
+}
+ 
+input[type=text]:focus {
+  width: 100%;
+}
+</style>
 
 <body>
 
@@ -59,10 +85,15 @@ https://templatemo.com/tm-571-hexashop
 
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
+                            <li class="scroll-to-section">
+                                <form action="" method="POST">
+                                <input type="text" name="search" placeholder="Search..">
+                                <input type="submit" name="src" hidden>
+                                </form>
+                            </li>
                             <li class="scroll-to-section"><a href="index.php" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="index.php">Catagories</a></li>
                             <li class="scroll-to-section"><a href="products.php">Products</a></li>
-                            <li class="scroll-to-section"><a href="#social">Contact</a></li>
+                            <li class="scroll-to-section"><a href="contact.php">Contact</a></li>
                             
                             <?php
                             if (isset($_SESSION['login'])) {
@@ -74,20 +105,11 @@ https://templatemo.com/tm-571-hexashop
                             ?>
                                 
                                 <li class="scroll-to-section"><a href="login.php">Login</a></li>
-                                <li class="scroll-to-section"><a href="signup.php">Signup</a></li>
                             <?php
                             }
                             ?>
-                            <li class="scroll-to-section" id="fchart"><a href="#"><span id="fchartquan" class="badge badge-danger" style="position: absolute;top: -4px;right: 35px;">0</span><i class="fa fa-2x fa-shopping-cart"></i></a></li>
-
-
-                            <div class="search-box ">
-                                <input class="search-txt  d-none" type="text" name="" placeholder="Type to search">
-                                <a class="" href="#">
-                                    <i class="fa fa-2x fa-search" id="sbtn"></i>
-                                </a>
-                            </div>
-
+                            <li class="scroll-to-section position-relative" id="fchart"><a href="#"><span id="fchartquan" class="badge badge-danger" style="position: absolute;top: -4px;right: 35px;">0</span><i class="fa fa-2x fa-shopping-cart"></i></a></li>
+                            
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -150,6 +172,7 @@ https://templatemo.com/tm-571-hexashop
             left: -110%;
             background: white;
             transition: all 0.5s;
+            overflow-y: scroll;
         }
 
         .slidechart {
@@ -157,3 +180,15 @@ https://templatemo.com/tm-571-hexashop
         }
     </style>
     <!-- ***** Header Area End ***** -->
+
+    <?php
+        if(isset($_POST['src'])){
+            $sText = $_POST['search'];
+            $_SESSION['has'] = "$sText";
+            ?>
+            <script>
+                window.location.href = "<?php echo SITEURL;?>search.php";
+            </script>
+            <?php
+        }
+    ?>

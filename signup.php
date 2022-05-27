@@ -35,7 +35,7 @@
       if(isset($_SESSION['login'])){
         ?>
         <script>
-          window.location.href = "http://localhost/Ecom/";
+          window.location.href = "<?php echo SITEURL;?>";
         </script>
         <?php
       }
@@ -174,7 +174,7 @@
           $_SESSION['create'] =  "<div class='success text-center'>Account Created Successfully...</div>";
           ?>
           <script>
-            window.location.href = "http://localhost/Ecom/login.php";
+            window.location.href = "<?php echo SITEURL;?>login.php";
           </script>
           <?php
         }
@@ -182,7 +182,7 @@
         $_SESSION['failed'] = "Email ID Already Exist...";
         ?>
         <script>
-				  window.location.href = "http://localhost/Ecom/signup.php";
+				  window.location.href = "<?php echo SITEURL;?>signup.php";
 				</script>
         <?php
       }

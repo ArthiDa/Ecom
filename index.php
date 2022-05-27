@@ -79,16 +79,22 @@
     </div>
     <!-- ***** Main Banner Area End ***** -->
 
-
     <!-- ***** Popular Products Area start ***** -->
     <?php
-        $sql = "SELECT * FROM product";
-        // ORDER BY productID DESC
-        $res = mysqli_query($conn, $sql);
-        $count = mysqli_num_rows($res);
+    $topSql = "SELECT * from orders";
+    $topRes = mysqli_query($conn,$topSql);
+    $topProduct = [];
+    $cnt = mysqli_num_rows($topRes);
+    while($cnt && $topRow=mysqli_fetch_assoc($topRes)){
+    $pID = $topRow['productID'];
+    $pCN = $topRow['Quantity'];
+    if(array_key_exists($pID,$topProduct)){
+        $topProduct[$pID] = $topProduct[$pID] + $pCN;
+    }
+    else $topProduct[$pID] = $pCN;
+    }
+    arsort($topProduct);
     ?>
-
-
     <section class="section" id="men">
         <div class="container">
             <div class="row">
@@ -106,8 +112,12 @@
                     <div class="men-item-carousel">
                         <div class="owl-men-item owl-carousel">
                             <?php
-                                if($count>0){
-                                    while($row=mysqli_fetch_assoc($res)){
+                                if($cnt){
+                                    $counter = 0;
+                                    foreach($topProduct as $PID => $value){
+                                        $sql = "SELECT * from product where productID = $PID";
+                                        $res = mysqli_query($conn,$sql);
+                                        $row=mysqli_fetch_assoc($res);
                                         $id = $row["productID"];
                                         $imgName = $row["ImgName"];
                                         $pTitle = $row["Title"];
@@ -141,6 +151,10 @@
                                         </div>
                                         
                                         <?php
+                                        $counter++;
+                                        if($counter==3){
+                                            break;
+                                        }
                                     }
                                 }
                             ?>
