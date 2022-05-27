@@ -70,9 +70,6 @@
         </div>
     </section>
 
-<?php include('MenuXFooter/footer.php') ?>
-
-
 <script src="assets/js/jquery-2.1.0.min.js"></script>
 
     <!-- Bootstrap -->
@@ -115,6 +112,7 @@
     <?php
         unset($_SESSION['has']);
     ?>
+<?php include('MenuXFooter/footer.php') ?>
 
 </body>
 </html>

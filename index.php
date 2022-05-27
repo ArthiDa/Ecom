@@ -210,8 +210,6 @@
         </div>
     </section>
 
-<?php include('MenuXFooter/footer.php') ?>
-
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
 
@@ -252,6 +250,7 @@
 
     </script>
     <link rel="stylesheet" href="prof.css">
+    <?php include('MenuXFooter/footer.php') ?>
 
   </body>
     </html>

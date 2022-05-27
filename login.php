@@ -165,7 +165,6 @@
 			   }
 		}
 	?>
-  <?php include('MenuXFooter/footer.php') ?>
   <script src="js/jquery.min.js"></script>
   <script src="js/popper.js"></script>
   <script src="js/bootstrap.min.js"></script>
@@ -210,7 +209,7 @@
         });
 
     </script>
-
+<?php include('MenuXFooter/footer.php') ?>
 	</body>
 </html>
 

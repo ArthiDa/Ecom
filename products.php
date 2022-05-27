@@ -14,11 +14,11 @@
                 $name = $row["Name"];
             }
             ?>
-            <div class="page-heading" id="top">
+            <div class="page-heading"id="top" style="background-image: url('<?php echo SITEURL;?>img/<?php echo $banner?>');background-position: center center; background-size: cover; background-repeat: no-repeat;">
               <div class="container">
                   <div class="row">
                       <div class="col-lg-12">
-                          <div class="inner-content" style="background-image: url('<?php echo SITEURL;?>img/<?php echo $banner?>')">
+                          <div class="inner-content">
                           </div>
                       </div>
                   </div>
@@ -71,11 +71,11 @@
         }
         else if(!isset($_GET['catagory_id'])){
           ?>
-          <div class="page-heading" id="top">
+          <div class="page-heading" id="top" style="background-image: url('<?php echo SITEURL;?>img/leftbanner.webp');background-position: center center; background-size: cover; background-repeat: no-repeat;">
               <div class="container">
                   <div class="row">
                       <div class="col-lg-12">
-                          <div class="inner-content" style="background-image: url('<?php echo SITEURL;?>img/leftbanner.webp')">
+                          <div class="inner-content">
                           </div>
                       </div>
                   </div>
@@ -128,7 +128,6 @@
         }
     ?>
 
-<?php include('MenuXFooter/footer.php') ?>
 
 
 <script src="assets/js/jquery-2.1.0.min.js"></script>
@@ -170,7 +169,7 @@
         });
 
     </script>
-
+<?php include('MenuXFooter/footer.php') ?>
 </body>
 </html>
 
