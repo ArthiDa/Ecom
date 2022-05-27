@@ -45,7 +45,7 @@
     <script src="../ecom/MenuXFooter/chart/chart.js"></script>
     
     <!-- Global Init -->
-    <script src="assets/js/custom.js"></script>
+    
 
     <script>
 

@@ -82,7 +82,8 @@
 	// Menu Dropdown Toggle
 	if($('.menu-trigger').length){
 		$(".menu-trigger").on('click', function() {	
-			$(this).toggleClass('active');
+			$(this).toggleClass("");
+			console.log("click");
 			$('.header-area .nav').slideToggle(200);
 		});
 	}
