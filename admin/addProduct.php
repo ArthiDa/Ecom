@@ -3,7 +3,7 @@
 <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Orders</h1>
+      <h1>Add New Products</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="<?php echo SITEURL;?>">Home</a></li>
